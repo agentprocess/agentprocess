@@ -125,8 +125,10 @@ What makes this robust:
 
 - **The rule is in one place**, in plain language, in the step that applies it.
 - **The result is typed.** `tier` can only be `auto`, `manager` or `finance`; anything else is refused before a check or a person sees it.
-- **The application is checked.** The check reads the instructions, the run's inputs and the chosen tier. A wrong tier fails and goes back with the reason; a doubtful one goes to a person.
+- **The application is checked.** The check reads the instructions, the run's inputs and the chosen tier, and judges whether the rule was applied as written. A clearly wrong tier fails and goes back with the reason; a doubtful one goes to a person.
 - **The reasoning is recorded.** The summary states the amount and the rule applied, beside the route and the check's verdict.
+
+A check is a judgement, not a calculator: it does not verify arithmetic, counts or dates. Where an exact threshold must hold without exception, have the agent compute it with a deterministic tool and attach the result as evidence, or give the decision to a person in a `task`. The server itself never evaluates a rule.
 
 ## Scored choices: weighted comparisons
 
