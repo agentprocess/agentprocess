@@ -97,29 +97,10 @@ Every purchase request is classified under the purchasing policy and approved at
 level the policy requires. The policy is the numbered list in the classify step.
 ```
 
-```mermaid
-flowchart TD
-  classify("Classify<br/>Agent"):::agent
-  manager_approval{{"Manager approval<br/>Approval: manager"}}:::person
-  rejected_manager_approval(["Rejected"]):::outcome
-  finance_approval{{"Finance approval<br/>Approval: finance-approver"}}:::person
-  rejected_finance_approval(["Rejected"]):::outcome
-  order("Order<br/>Agent"):::agent
-  ordered(["Ordered"]):::outcome
-  classify -->|"Tier is auto"| order
-  classify -->|"Tier is manager"| manager_approval
-  classify -->|"Tier is finance"| finance_approval
-  manager_approval -->|"Approved"| order
-  manager_approval -.->|"Rejected"| rejected_manager_approval
-  finance_approval -->|"Approved"| order
-  finance_approval -.->|"Rejected"| rejected_finance_approval
-  order --> ordered
-  classDef agent fill:#E6F0EE,stroke:#0E5E59,color:#0B3B38,stroke-width:1.5px
-  classDef person fill:#FDF4E4,stroke:#A15500,color:#4A2B00,stroke-width:1.5px
-  classDef wait fill:#EEF3FD,stroke:#2456C2,color:#16264D,stroke-width:1.5px
-  classDef flow fill:#F6F5F1,stroke:#8F8C83,color:#1C1D1A,stroke-width:1.5px
-  classDef outcome fill:#1C1D1A,stroke:#1C1D1A,color:#FFFFFF
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/maps/purchase-routing-dark.png">
+  <img alt="The purchase routing process as a map: the agent classifies the request, a decision point routes by tier to ordering, manager approval or finance approval." src="../assets/maps/purchase-routing-light.png" width="100%">
+</picture>
 
 What makes this robust:
 

@@ -80,24 +80,12 @@ steps:
 The agent screens the vendor, finance approves, and the supplier is onboarded.
 ```
 
-**The same file is the map.** It is drawn from the steps, never maintained beside them: agents in teal, people in amber, rejections dashed. ([How maps are drawn](authoring/process-maps.md))
+**The same file is the map.** A server draws it from the steps, never from a second copy: a lane for each performer, routes branching from a decision point, and rejections looping back. ([How maps are drawn](authoring/process-maps.md))
 
-```mermaid
-flowchart TD
-  check_vendor("Check vendor<br/>Agent"):::agent
-  approve{{"Approve<br/>Approval: finance-approver"}}:::person
-  decline(["Declined"]):::outcome
-  done(["Onboarded"]):::outcome
-  check_vendor -->|"Vendor is cleared on both lists"| approve
-  check_vendor -->|"Any sanctions hit"| decline
-  approve -->|"Approved"| done
-  approve -.->|"Rejected"| check_vendor
-  classDef agent fill:#E6F0EE,stroke:#0E5E59,color:#0B3B38,stroke-width:1.5px
-  classDef person fill:#FDF4E4,stroke:#A15500,color:#4A2B00,stroke-width:1.5px
-  classDef wait fill:#EEF3FD,stroke:#2456C2,color:#16264D,stroke-width:1.5px
-  classDef flow fill:#F6F5F1,stroke:#8F8C83,color:#1C1D1A,stroke-width:1.5px
-  classDef outcome fill:#1C1D1A,stroke:#1C1D1A,color:#FFFFFF
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/maps/supplier-onboarding-dark.png">
+  <img alt="The supplier onboarding process as a map: the agent checks the vendor, a decision point routes to finance approval or decline, and a rejection loops back to the check." src="assets/maps/supplier-onboarding-light.png" width="100%">
+</picture>
 
 **2. Publish it to a process server.** The server checks the file, maps `finance-approver` to a group of people, and publishes a numbered version with a content hash. That version never changes.
 

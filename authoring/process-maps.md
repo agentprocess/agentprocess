@@ -36,45 +36,32 @@ steps:
 The agent screens the vendor, finance approves, and the supplier is onboarded.
 ```
 
-```mermaid
-flowchart TD
-  check_vendor("Check vendor<br/>Agent"):::agent
-  approve{{"Approve<br/>Approval: finance-approver"}}:::person
-  decline(["Declined"]):::outcome
-  done(["Onboarded"]):::outcome
-  check_vendor -->|"Vendor is cleared on both lists"| approve
-  check_vendor -->|"Any sanctions hit"| decline
-  approve -->|"Approved"| done
-  approve -.->|"Rejected"| check_vendor
-  classDef agent fill:#E6F0EE,stroke:#0E5E59,color:#0B3B38,stroke-width:1.5px
-  classDef person fill:#FDF4E4,stroke:#A15500,color:#4A2B00,stroke-width:1.5px
-  classDef wait fill:#EEF3FD,stroke:#2456C2,color:#16264D,stroke-width:1.5px
-  classDef flow fill:#F6F5F1,stroke:#8F8C83,color:#1C1D1A,stroke-width:1.5px
-  classDef outcome fill:#1C1D1A,stroke:#1C1D1A,color:#FFFFFF
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/maps/supplier-onboarding-dark.png">
+  <img alt="The supplier onboarding process as a map: the agent checks the vendor, a decision point routes to finance approval or decline, and a rejection loops back to the check." src="../assets/maps/supplier-onboarding-light.png" width="100%">
+</picture>
 
 ## How each part is drawn
 
-The conventions below are the ones these docs and the starter process library use. They are a recommendation, not a requirement: the map is informative, and a server is free to draw it differently.
+These are the conventions of the map on agentprocess.io and in the reference server. They are a recommendation, not a requirement: the map is informative, and a server is free to draw it differently.
 
 | In the file | On the map |
 |---|---|
-| `agent:` step | A teal box labelled *Agent*. |
-| `task:` step | An amber box labelled with the person or role. |
-| `approve:` step | An amber hexagon labelled *Approval* and the role, with an *Approved* line forward and a dashed *Rejected* line. |
-| `on_reject:` | The dashed *Rejected* line goes back to that step. Without it, it ends at a *Rejected* outcome. |
-| `next:` as a list | One line per route, labelled with its `when` text. |
-| `wait`, `wait_until`, `wait_for` | A blue slanted box. `wait_for` with a `timeout` adds a dashed *Timeout* line. |
-| `parallel:` (profile) | A fork into every branch and an *All branches complete* join before the process continues. |
-| `finish:` | A dark pill with the outcome. |
+| The first step | A **Start** marker leads into it. |
+| Who does a step | A **lane** for each performer: *Agent* for `agent:` steps, then one lane for each role or person named in `task:` and `approve:` steps. Waits and finishes sit in the lane of the step before them. |
+| A step | A **card** with its kind, its id and its instructions, and badges for outputs, evidence and checks. |
+| `next:` as a list | A **decision point** after the step, with one line per route labelled with its `when` text. |
+| `approve:` | An approval card with an **Approved** line forward. `on_reject` adds a dashed **Rejected** line back to that step; without it, the card says the run ends rejected. |
+| `parallel:` (profile) | The branches start together and meet at a **join bar** before the process continues. |
+| `finish:` | An **End** marker with the outcome. |
 
-Colour says who has the ball: **teal for agents, amber for people, blue for waiting**, dark for the end. Read top to bottom, a map shows at a glance where people decide, which way rejections flow, and every way the process can end.
+Read left to right, the map shows at a glance who does what, where people decide, which way rejections flow, and every way the process can end.
 
 ## Where maps appear
 
-- **On GitHub**, as a Mermaid diagram in the file's body. GitHub renders it in place, as above. Put it under a `## Process map` heading at the end of the body, and regenerate it whenever the steps change.
-- **On agentprocess.io**, every example process in these docs is drawn as an interactive map under its file: select a step to read its instructions, or switch to a step-by-step list.
-- **In a process server**, which can draw the published version beside each run, so people see where the work is.
+- **On agentprocess.io**, every example process in these docs is drawn as an interactive map under its file: select a step to read its instructions, expand it, or switch to a step-by-step list.
+- **In a process server**, beside each published version and each run, so people see where the work is.
+- **On GitHub**, where a page cannot run the interactive map, the examples show the same map as an image.
 
 ## Write steps that map well
 
