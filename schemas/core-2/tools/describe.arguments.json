@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentprocess.io/schemas/core-2/tools/describe.arguments.json",
+  "title": "describe arguments",
+  "description": "Arguments of the agentprocess tool describe",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": false
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentprocess.io/schemas/core-2/tools/list_runs.result.json",
+  "title": "list_runs result",
+  "description": "Result of the agentprocess tool list_runs, inside { ok: true, data }",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "process": {
+            "type": "string"
+          },
+          "version": {
+            "type": "number"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "active",
+              "waiting",
+              "ended",
+              "cancelled"
+            ]
+          },
+          "outcome": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "startedAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          },
+          "inputs": {
+            "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
+            "additionalProperties": {}
+          }
+        },
+        "required": [
+          "id",
+          "process",
+          "version",
+          "state",
+          "outcome",
+          "startedAt",
+          "updatedAt",
+          "inputs"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "nextCursor": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "items",
+    "nextCursor"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentprocess.io/schemas/core-2/tools/cancel.arguments.json",
+  "title": "cancel arguments",
+  "description": "Arguments of the agentprocess tool cancel",
+  "type": "object",
+  "properties": {
+    "runId": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string",
+      "maxLength": 4000
+    },
+    "requestId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    }
+  },
+  "required": [
+    "runId",
+    "reason",
+    "requestId"
+  ],
+  "additionalProperties": false
+}

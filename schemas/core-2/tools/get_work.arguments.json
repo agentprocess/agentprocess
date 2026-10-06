@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentprocess.io/schemas/core-2/tools/get_work.arguments.json",
+  "title": "get_work arguments",
+  "description": "Arguments of the agentprocess tool get_work",
+  "type": "object",
+  "properties": {
+    "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
+    },
+    "cursor": {
+      "type": "string"
+    },
+    "process": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

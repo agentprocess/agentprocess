@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentprocess.io/schemas/core-2/tools/list_processes.arguments.json",
+  "title": "list_processes arguments",
+  "description": "Arguments of the agentprocess tool list_processes",
+  "type": "object",
+  "properties": {
+    "cursor": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

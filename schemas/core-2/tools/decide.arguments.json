@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentprocess.io/schemas/core-2/tools/decide.arguments.json",
+  "title": "decide arguments",
+  "description": "Arguments of the agentprocess tool decide",
+  "type": "object",
+  "properties": {
+    "runId": {
+      "type": "string"
+    },
+    "workItemId": {
+      "type": "string"
+    },
+    "snapshot": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "approved",
+        "rejected",
+        "returned",
+        "failed"
+      ]
+    },
+    "output": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {}
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "file",
+              "link"
+            ]
+          },
+          "ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "kind",
+          "ref"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "next": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string",
+      "maxLength": 4000
+    },
+    "note": {
+      "type": "string",
+      "maxLength": 4000
+    },
+    "requestId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    }
+  },
+  "required": [
+    "runId",
+    "workItemId",
+    "snapshot",
+    "decision",
+    "requestId"
+  ],
+  "additionalProperties": false
+}

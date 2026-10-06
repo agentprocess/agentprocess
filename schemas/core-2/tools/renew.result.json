@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentprocess.io/schemas/core-2/tools/renew.result.json",
+  "title": "renew result",
+  "description": "Result of the agentprocess tool renew, inside { ok: true, data }",
+  "type": "object",
+  "properties": {
+    "token": {
+      "type": "string"
+    },
+    "expiresAt": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "token",
+    "expiresAt"
+  ],
+  "additionalProperties": false
+}

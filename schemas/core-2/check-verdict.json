@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentprocess.io/schemas/core-2/check-verdict.json",
+  "title": "check-verdict",
+  "description": "agentprocess core-2 shared shape: check-verdict",
+  "type": "object",
+  "properties": {
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "fail",
+        "unsure",
+        "error"
+      ]
+    },
+    "advisory": {
+      "type": "boolean"
+    },
+    "model": {
+      "type": "string"
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ask": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "yes_no",
+              "choice",
+              "rubric"
+            ]
+          },
+          "answer": {
+            "type": [
+              "number",
+              "string",
+              "null"
+            ]
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "result": {
+            "type": "string",
+            "enum": [
+              "pass",
+              "fail",
+              "unsure"
+            ]
+          }
+        },
+        "required": [
+          "ask",
+          "kind",
+          "answer",
+          "result"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "truncated": {
+      "type": "boolean"
+    },
+    "at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "verdict",
+    "advisory",
+    "model",
+    "questions",
+    "at"
+  ],
+  "additionalProperties": false
+}

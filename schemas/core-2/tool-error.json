@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentprocess.io/schemas/core-2/tool-error.json",
+  "title": "tool-error",
+  "description": "agentprocess core-2 shared shape: tool-error",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string",
+      "enum": [
+        "invalid",
+        "not_accepted",
+        "stale",
+        "conflict",
+        "forbidden",
+        "not_found",
+        "retry"
+      ]
+    },
+    "message": {
+      "type": "string"
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "code",
+    "message"
+  ],
+  "additionalProperties": false
+}

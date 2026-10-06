@@ -1,0 +1,72 @@
+{
+  "protocol": "agentprocess",
+  "version": "core-2",
+  "base": "https://agentprocess.io/schemas/core-2/",
+  "shared": {
+    "process-document": "process-document.json",
+    "run-view": "run-view.json",
+    "work-item": "work-item.json",
+    "run-data": "run-data.json",
+    "evidence-item": "evidence-item.json",
+    "check-verdict": "check-verdict.json",
+    "tool-error": "tool-error.json"
+  },
+  "tools": {
+    "describe": {
+      "arguments": "tools/describe.arguments.json",
+      "result": "tools/describe.result.json"
+    },
+    "list_processes": {
+      "arguments": "tools/list_processes.arguments.json",
+      "result": "tools/list_processes.result.json"
+    },
+    "start_run": {
+      "arguments": "tools/start_run.arguments.json",
+      "result": "tools/start_run.result.json"
+    },
+    "get_run": {
+      "arguments": "tools/get_run.arguments.json",
+      "result": "tools/get_run.result.json"
+    },
+    "get_work": {
+      "arguments": "tools/get_work.arguments.json",
+      "result": "tools/get_work.result.json"
+    },
+    "claim": {
+      "arguments": "tools/claim.arguments.json",
+      "result": "tools/claim.result.json"
+    },
+    "renew": {
+      "arguments": "tools/renew.arguments.json",
+      "result": "tools/renew.result.json"
+    },
+    "upload": {
+      "arguments": "tools/upload.arguments.json",
+      "result": "tools/upload.result.json"
+    },
+    "submit": {
+      "arguments": "tools/submit.arguments.json",
+      "result": "tools/submit.result.json"
+    },
+    "escalate": {
+      "arguments": "tools/escalate.arguments.json",
+      "result": "tools/escalate.result.json"
+    },
+    "decide": {
+      "arguments": "tools/decide.arguments.json",
+      "result": "tools/decide.result.json"
+    },
+    "cancel": {
+      "arguments": "tools/cancel.arguments.json",
+      "result": "tools/cancel.result.json"
+    },
+    "send_event": {
+      "arguments": "tools/send_event.arguments.json",
+      "result": "tools/send_event.result.json"
+    },
+    "list_runs": {
+      "arguments": "tools/list_runs.arguments.json",
+      "result": "tools/list_runs.result.json"
+    }
+  }
+}

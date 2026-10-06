@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentprocess.io/schemas/core-2/tools/send_event.arguments.json",
+  "title": "send_event arguments",
+  "description": "Arguments of the agentprocess tool send_event",
+  "type": "object",
+  "properties": {
+    "runId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {}
+    },
+    "requestId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    }
+  },
+  "required": [
+    "runId",
+    "name",
+    "requestId"
+  ],
+  "additionalProperties": false
+}

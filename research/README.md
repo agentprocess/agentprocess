@@ -1,0 +1,13 @@
+# Research: how the specification was tested
+
+Before any server existed, the specification was tested by asking a different model, given only the specification text, to write real business processes against it and to trace runs call by call. Each round's gaps became edits to the next revision. Three rounds ran on 6 October 2026.
+
+| Round | Specification given | What the reviewer did | Result |
+|---|---|---|---|
+| [1](review-round-1.md) | Revision 1 (core only) | Wrote ten processes and walked each one through. | The format described most processes but did not yet define an interoperable execution protocol. Led to revision 2 and the separate tool contracts. |
+| [2](review-round-2.md) | Revision 2, core and tools | Traced runs with exact calls and results, and named every point where two servers could behave differently. | Led to revision 3 and the 23 questions the `parallel` profile answers. |
+| [3](review-round-3.md) | Revision 3, core, tools and `parallel` | Traced runs again, including a parallel incident response. | Led to revision 4. |
+
+Of the ten processes, eight fit the core cleanly, one needed a workaround, and one needed `parallel`. The processes themselves are the [conformance fixtures](../conformance/README.md).
+
+Read these as historical documents. They quote the revision they were given, which differs from the current [specification](../spec/specification.md); the [changelog](../spec/changelog.md) records what each round changed. Filenames such as `agentprocess-core-for-review.md` are the copies the reviewers were given.

@@ -1,0 +1,645 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentprocess.io/schemas/core-2/work-item.json",
+  "title": "work-item",
+  "description": "agentprocess core-2 shared shape: work-item",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "stepId": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "agent",
+        "task",
+        "approve"
+      ]
+    },
+    "text": {
+      "type": "string"
+    },
+    "output": {
+      "anyOf": [
+        {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "minLength": 1
+          },
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "string",
+                  "number",
+                  "boolean",
+                  "date",
+                  "datetime",
+                  "list",
+                  "object",
+                  "person"
+                ]
+              },
+              {
+                "$ref": "#/$defs/__schema0"
+              }
+            ]
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "evidence": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "file",
+              "link"
+            ]
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "next": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "to": {
+                "type": "string"
+              },
+              "when": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "to"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "assignedTo": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "group": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "group"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "person": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "person"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "snapshot": {
+      "type": "string"
+    },
+    "due": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "escalation": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "note": {
+              "type": "string"
+            },
+            "by": {
+              "type": "string"
+            },
+            "at": {
+              "type": "string"
+            },
+            "check": {
+              "type": "object",
+              "properties": {
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "pass",
+                    "fail",
+                    "unsure",
+                    "error"
+                  ]
+                },
+                "advisory": {
+                  "type": "boolean"
+                },
+                "model": {
+                  "type": "string"
+                },
+                "questions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ask": {
+                        "type": "string"
+                      },
+                      "kind": {
+                        "type": "string",
+                        "enum": [
+                          "yes_no",
+                          "choice",
+                          "rubric"
+                        ]
+                      },
+                      "answer": {
+                        "type": [
+                          "number",
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "confidence": {
+                        "type": "number"
+                      },
+                      "result": {
+                        "type": "string",
+                        "enum": [
+                          "pass",
+                          "fail",
+                          "unsure"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "ask",
+                      "kind",
+                      "answer",
+                      "result"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "truncated": {
+                  "type": "boolean"
+                },
+                "at": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "verdict",
+                "advisory",
+                "model",
+                "questions",
+                "at"
+              ],
+              "additionalProperties": false
+            },
+            "candidate": {
+              "type": "object",
+              "properties": {
+                "output": {
+                  "type": "object",
+                  "propertyNames": {
+                    "type": "string"
+                  },
+                  "additionalProperties": {}
+                },
+                "evidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "enum": [
+                          "file",
+                          "link"
+                        ]
+                      },
+                      "ref": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "sha256": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "ref"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "summary": {
+                  "type": "string"
+                },
+                "next": {
+                  "type": "string"
+                },
+                "reason": {
+                  "type": "string"
+                },
+                "decision": {
+                  "type": "string",
+                  "enum": [
+                    "approved",
+                    "rejected",
+                    "failed"
+                  ]
+                },
+                "note": {
+                  "type": "string"
+                },
+                "check": {
+                  "type": "object",
+                  "properties": {
+                    "verdict": {
+                      "type": "string",
+                      "enum": [
+                        "pass",
+                        "fail",
+                        "unsure",
+                        "error"
+                      ]
+                    },
+                    "advisory": {
+                      "type": "boolean"
+                    },
+                    "model": {
+                      "type": "string"
+                    },
+                    "questions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "ask": {
+                            "type": "string"
+                          },
+                          "kind": {
+                            "type": "string",
+                            "enum": [
+                              "yes_no",
+                              "choice",
+                              "rubric"
+                            ]
+                          },
+                          "answer": {
+                            "type": [
+                              "number",
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "confidence": {
+                            "type": "number"
+                          },
+                          "result": {
+                            "type": "string",
+                            "enum": [
+                              "pass",
+                              "fail",
+                              "unsure"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "ask",
+                          "kind",
+                          "answer",
+                          "result"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "truncated": {
+                      "type": "boolean"
+                    },
+                    "at": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "verdict",
+                    "advisory",
+                    "model",
+                    "questions",
+                    "at"
+                  ],
+                  "additionalProperties": false
+                },
+                "by": {
+                  "type": "string"
+                },
+                "at": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "note",
+            "by",
+            "at"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "handoff": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "progress": {
+              "type": "string"
+            },
+            "returned": {
+              "type": "object",
+              "properties": {
+                "note": {
+                  "type": "string"
+                },
+                "by": {
+                  "type": "string"
+                },
+                "at": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "note",
+                "by",
+                "at"
+              ],
+              "additionalProperties": false
+            },
+            "issues": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "check": {
+              "type": "object",
+              "properties": {
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "pass",
+                    "fail",
+                    "unsure",
+                    "error"
+                  ]
+                },
+                "advisory": {
+                  "type": "boolean"
+                },
+                "model": {
+                  "type": "string"
+                },
+                "questions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ask": {
+                        "type": "string"
+                      },
+                      "kind": {
+                        "type": "string",
+                        "enum": [
+                          "yes_no",
+                          "choice",
+                          "rubric"
+                        ]
+                      },
+                      "answer": {
+                        "type": [
+                          "number",
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "confidence": {
+                        "type": "number"
+                      },
+                      "result": {
+                        "type": "string",
+                        "enum": [
+                          "pass",
+                          "fail",
+                          "unsure"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "ask",
+                      "kind",
+                      "answer",
+                      "result"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "truncated": {
+                  "type": "boolean"
+                },
+                "at": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "verdict",
+                "advisory",
+                "model",
+                "questions",
+                "at"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "mode": {
+      "type": "string",
+      "const": "test"
+    },
+    "decide": {
+      "type": "object",
+      "properties": {
+        "tool": {
+          "type": "string",
+          "const": "decide"
+        },
+        "arguments": {
+          "type": "object",
+          "properties": {
+            "runId": {
+              "type": "string"
+            },
+            "workItemId": {
+              "type": "string"
+            },
+            "snapshot": {
+              "type": "string"
+            },
+            "requestId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "runId",
+            "workItemId",
+            "snapshot",
+            "requestId"
+          ],
+          "additionalProperties": false
+        },
+        "decisions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "completed",
+              "approved",
+              "rejected",
+              "returned",
+              "failed"
+            ]
+          }
+        }
+      },
+      "required": [
+        "tool",
+        "arguments",
+        "decisions"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "id",
+    "stepId",
+    "kind",
+    "text",
+    "output",
+    "evidence",
+    "next",
+    "assignedTo",
+    "snapshot",
+    "due",
+    "escalation",
+    "handoff",
+    "decide"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "string",
+            "number",
+            "boolean",
+            "date",
+            "datetime",
+            "list",
+            "object",
+            "person"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "optional": {
+          "type": "boolean"
+        },
+        "one_of": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "number",
+              "boolean"
+            ]
+          }
+        },
+        "items": {
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "string",
+                "number",
+                "boolean",
+                "date",
+                "datetime",
+                "list",
+                "object",
+                "person"
+              ]
+            },
+            {
+              "$ref": "#/$defs/__schema0"
+            }
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

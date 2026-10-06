@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentprocess.io/schemas/core-2/tools/describe.result.json",
+  "title": "describe result",
+  "description": "Result of the agentprocess tool describe, inside { ok: true, data }",
+  "type": "object",
+  "properties": {
+    "protocol": {
+      "type": "string",
+      "const": "agentprocess"
+    },
+    "version": {
+      "type": "string"
+    },
+    "profiles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "leaseSeconds": {
+      "type": "number"
+    },
+    "person": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "format"
+      ],
+      "additionalProperties": false
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "maxUploadBytes": {
+      "type": "number"
+    },
+    "limits": {
+      "type": "object",
+      "properties": {
+        "runDataBytes": {
+          "type": "number"
+        },
+        "checkPass": {
+          "type": "number"
+        },
+        "checkFail": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "checkConfidence": {
+          "type": "number"
+        },
+        "checkStateBytes": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "runDataBytes",
+        "checkPass",
+        "checkFail",
+        "checkConfidence",
+        "checkStateBytes"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "protocol",
+    "version",
+    "profiles",
+    "leaseSeconds",
+    "person",
+    "tools",
+    "limits"
+  ],
+  "additionalProperties": false
+}

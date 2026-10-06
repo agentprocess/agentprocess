@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentprocess.io/schemas/core-2/tools/renew.arguments.json",
+  "title": "renew arguments",
+  "description": "Arguments of the agentprocess tool renew",
+  "type": "object",
+  "properties": {
+    "token": {
+      "type": "string"
+    },
+    "progress": {
+      "type": "string",
+      "maxLength": 4000
+    },
+    "requestId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    }
+  },
+  "required": [
+    "token",
+    "requestId"
+  ],
+  "additionalProperties": false
+}

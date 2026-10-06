@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentprocess.io/schemas/core-2/tools/upload.result.json",
+  "title": "upload result",
+  "description": "Result of the agentprocess tool upload, inside { ok: true, data }",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "sha256": {
+      "type": "string"
+    },
+    "bytes": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "id",
+    "sha256",
+    "bytes"
+  ],
+  "additionalProperties": false
+}

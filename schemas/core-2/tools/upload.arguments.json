@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentprocess.io/schemas/core-2/tools/upload.arguments.json",
+  "title": "upload arguments",
+  "description": "Arguments of the agentprocess tool upload",
+  "type": "object",
+  "properties": {
+    "fileName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "contentType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "contentBase64": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requestId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    }
+  },
+  "required": [
+    "fileName",
+    "contentType",
+    "contentBase64",
+    "requestId"
+  ],
+  "additionalProperties": false
+}
