@@ -98,4 +98,4 @@ Every write takes a fresh `requestId`, a UUID unique within the organization. If
 
 ## Starting runs and sending events
 
-An agent may also start runs with `start_run`, given the process name and inputs, and deliver events to runs that wait for them with `send_event`. An agent cannot start a process that assigns a step to `initiator`, because a run it starts has no initiating person. It can never call `decide` or `cancel`; those are for people.
+An agent may also start runs with `start_run`, given the process name and inputs. `list_processes` returns each process's inputs and, when it declares them, the external systems it `requires`: check that your identity can reach them before starting a run. An agent may also deliver events to runs that wait for them with `send_event`. An agent cannot start a process that assigns a step to `initiator`, because a run it starts has no initiating person. It can never call `decide` or `cancel`; those are for people.

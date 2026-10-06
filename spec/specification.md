@@ -71,6 +71,7 @@ The body is for people and agents. A server returns it with every claim and ever
 | `name` | yes | 1–64 chars matching `^[a-z0-9]+(-[a-z0-9]+)*$`. When a process travels as a folder, the folder has this name; an importer given a folder refuses a mismatch. |
 | `description` | yes | One or two sentences: what the process does and when to start it. |
 | `inputs` | no | Fields a run starts with (§2.3). Default: none. |
+| `requires` | no | What the organization must have outside the server before the work can be done. One key, `systems`: the named external systems the agent or person needs access to, such as `{ systems: [salesforce, gmail] }`. Names match the `name` pattern and are listed once each. A server never checks or grants this access; it shows the list wherever the process is offered, so an organization adopting a process knows what to connect first. |
 | `steps` | yes | Ordered list of steps (§2.2). At least one. |
 
 Unknown fields anywhere in the frontmatter are refused. Frontmatter is YAML 1.2; a server MUST parse it with the core schema only, so `yes` and `no` are strings. Duplicate keys are refused.
@@ -264,7 +265,7 @@ A server **conforms** when it keeps these five rules, offers the required tools 
 
 ## 7. Packages
 
-A process travels as its folder: `PROCESS.md` alone in core, plus whatever a profile adds. On import a server creates a draft, asks the importer to map every role name in `person:` to a group, and publishes only on request. A package grants nothing in the organization that imports it.
+A process travels as its folder: `PROCESS.md` alone in core, plus whatever a profile adds. On import a server creates a draft, asks the importer to map every role name in `person:` to a group, shows what `requires` names, and publishes only on request. A package grants nothing in the organization that imports it.
 
 ## 8. Profiles (not core)
 

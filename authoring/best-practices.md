@@ -13,7 +13,7 @@ Before writing steps, establish:
 - **The result and who receives it.** What state does the recipient need at the end, and where will it be checked? "The supplier is approved for setup" and "the supplier is set up" are different results.
 - **The boundary.** What starts the process, what must be true before it starts, where it ends, and what it hands to other processes.
 - **Who owns it.** The person accountable for the process, and the people and roles who do and accept the work.
-- **The facts it runs on.** The systems, records, tools, permissions and deadlines it depends on.
+- **The facts it runs on.** The systems, records, tools, permissions and deadlines it depends on. Name the external systems in `requires.systems`, so an organization adopting the process knows what to connect first. Declaring a system grants no access to it.
 
 Ask the people who do the work how a recent normal case and a recent difficult case went. Do not write down an imagined process and present it as the real one. Keep confirmed requirements apart from proposals and open questions, and do not invent thresholds, approvers or policy to make a draft look complete.
 

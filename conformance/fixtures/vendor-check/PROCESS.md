@@ -4,6 +4,8 @@ description: Check a new supplier against sanctions lists, with a model check on
 inputs:
   vendorName: string
   amount: { type: number, description: Expected annual spend in USD }
+requires:
+  systems: [sanctions-screening]
 steps:
   - id: check_vendor
     agent: |

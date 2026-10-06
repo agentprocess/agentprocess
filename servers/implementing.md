@@ -21,10 +21,11 @@ A server **conforms** when it keeps the five guarantees, offers the required too
 - Following `next` and `on_timeout` only, no step is visited twice.
 - A `person` path is `inputs.<field>` or `steps.<id>.output.<field>` naming a declared `person` field, and a `wait_until` path names a declared `datetime` field.
 - Field types are the eight core types, `one_of` values have the field's type, and durations are an integer followed by `m`, `h` or `d`.
+- `requires`, when present, has only `systems`: names matching the `name` pattern, each listed once.
 
 Also refuse a process that needs a profile you do not implement, or a tool you do not offer: `upload` for `evidence: [file]`, and `send_event` for `wait_for`.
 
-**Bind and publish.** On import, create a draft and ask the importer to map each role name to a group. Publishing creates a numbered version that never changes, with a content hash: SHA-256 over the RFC 8785 canonical JSON of the parsed frontmatter, one newline character, then the body exactly as written. A package grants nothing in the organization that imports it.
+**Bind and publish.** On import, create a draft, ask the importer to map each role name to a group, and show the systems `requires` names. Never check or grant that access; return `requires` from `list_processes` and show it wherever the process is offered. Publishing creates a numbered version that never changes, with a content hash: SHA-256 over the RFC 8785 canonical JSON of the parsed frontmatter, one newline character, then the body exactly as written. A package grants nothing in the organization that imports it.
 
 ## Step 2: Runs and run data
 

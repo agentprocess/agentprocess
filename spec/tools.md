@@ -79,6 +79,8 @@ Arguments: `{ cursor?: string }`. Paged like `get_work`.
   "nextCursor": null }
 ```
 
+An item also carries `requires` when the process declares it (§2.1).
+
 ## start_run
 
 Arguments: `{ process: string, version?: number, inputs: object, mode?: "live" | "test", requestId }`. `version` defaults to the latest published. Undeclared or mistyped inputs → `invalid` with `issues`. A process with any step assigned to `initiator`, when the caller is an agent identity → `invalid`.

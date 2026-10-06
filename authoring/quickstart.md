@@ -3,7 +3,7 @@ title: "Quickstart"
 description: "Write a process, publish it, and follow a test run step by step."
 ---
 
-This guide writes an expense approval: an agent checks a claim against its receipt, the employee's manager approves, and a claim that does not match goes back to the employee. It is one file of about 40 lines.
+This guide writes an expense approval: an agent checks a claim against its receipt, the employee's manager approves, and a claim that does not match goes back to the employee. It is one file of about 45 lines.
 
 ## Write the file
 
@@ -17,6 +17,8 @@ inputs:
   employee: person
   amount: { type: number, description: Claimed amount in USD }
   receiptUrl: string
+requires:
+  systems: [expense-tool]
 steps:
   - id: check_claim
     agent: |
@@ -64,6 +66,7 @@ correct.
 |---|---|
 | `name`, `description` | What people see in a catalog. The name is lowercase words joined by hyphens and matches the folder. |
 | `inputs` | The fields a run starts with. `person` is an identity the server resolves, such as an email. |
+| `requires` | The external systems the work needs, here the tool the receipts live in. A server shows the list to anyone adopting the process and never checks or grants the access. |
 | `agent:` | A step an agent completes. The text is its instructions. |
 | `output` | Fields the submission must contain, with types. `one_of` limits a field to listed values. |
 | `evidence: [link]` | The submission must attach at least one link. `[file]` would require an uploaded file. |

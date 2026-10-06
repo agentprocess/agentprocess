@@ -5,6 +5,12 @@ description: "Every revision of the specification and what prompted it."
 
 Changes to the specification, newest first. The wire version is `core-2`; revisions are editorial and contract refinements within it, each made after a review or after building the reference server. Profiles carry their own versions (`parallel-1`, `check-1`).
 
+## Revision 10
+
+Source: a process written in one organization and adopted by another.
+
+A process may declare `requires: { systems: [...] }`, the named external systems the work needs. A server shows the list wherever the process is offered and never checks it; `list_processes` returns it.
+
 ## Revision 9
 
 Source: publishing the specification.

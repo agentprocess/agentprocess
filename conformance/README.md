@@ -22,7 +22,7 @@ Each fixture is a folder with one `PROCESS.md`. The first ten were written by in
 | [supplier-rfp](fixtures/supplier-rfp/PROCESS.md) | File evidence, approval with `on_reject` |
 | [support-escalation](fixtures/support-escalation/PROCESS.md) | A route list, approval with `on_reject` |
 | [major-incident](fixtures/major-incident/PROCESS.md) | The `parallel` profile: fork, join, a `person` path |
-| [vendor-check](fixtures/vendor-check/PROCESS.md) | The `check` profile on a route list with file evidence |
+| [vendor-check](fixtures/vendor-check/PROCESS.md) | The `check` profile on a route list with file evidence; `requires` |
 
 ## Running it
 
