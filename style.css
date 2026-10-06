@@ -1,0 +1,614 @@
+/* Agent Process docs: typography and detail on top of the Mintlify aspen theme. */
+@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap");
+
+:root {
+  --ap-ink: #14140f;
+  --ap-body: #33322c;
+  --ap-muted: #6d6b62;
+  --ap-rule: #e6e3da;
+  --ap-surface: #ffffff;
+  --ap-accent: #0e6e5c;
+  --ap-accent-soft: rgba(14, 110, 92, 0.07);
+  --ap-accent-line: rgba(14, 110, 92, 0.3);
+  --ap-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+html.dark {
+  --ap-ink: #f3f1ea;
+  --ap-body: #cfccc2;
+  --ap-muted: #8f8c82;
+  --ap-rule: #24251f;
+  --ap-surface: #121312;
+  --ap-accent: #5bd4b5;
+  --ap-accent-soft: rgba(91, 212, 181, 0.08);
+  --ap-accent-line: rgba(91, 212, 181, 0.24);
+}
+
+::selection {
+  background: var(--ap-accent-line);
+}
+
+/* Page title and description */
+#page-title {
+  font-weight: 500;
+  font-size: clamp(2.4rem, 4.2vw, 3.25rem);
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+  word-break: normal;
+  color: var(--ap-ink);
+}
+
+/* Body copy */
+#content {
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: var(--ap-body);
+}
+
+#content :is(h2, h3, h4) {
+  color: var(--ap-ink);
+  font-weight: 500;
+}
+
+#content h2 {
+  font-size: 1.95rem;
+  line-height: 1.15;
+  letter-spacing: -0.016em;
+  margin-top: 3.25rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--ap-rule);
+}
+
+#content > h2:first-child,
+#content > div:first-child h2 {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 1rem;
+}
+
+#content h3 {
+  font-size: 1.4rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-top: 2.25rem;
+}
+
+#content strong {
+  color: var(--ap-ink);
+  font-weight: 600;
+}
+
+/* Links */
+#content a:not([class*="card"]):not([class^="ap-"]):not(:has(> div)) {
+  color: var(--ap-accent);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--ap-accent-line);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  border-bottom: 0;
+  transition: text-decoration-color 0.15s ease;
+}
+
+#content a:not([class*="card"]):not([class^="ap-"]):not(:has(> div)):hover {
+  text-decoration-color: var(--ap-accent);
+}
+
+/* Inline code */
+#content :not(pre) > code {
+  font-family: var(--ap-mono);
+  font-size: 0.84em;
+  font-weight: 450;
+  color: var(--ap-accent);
+  background: var(--ap-accent-soft);
+  border: 1px solid var(--ap-accent-line);
+  border-radius: 5px;
+  padding: 0.1em 0.38em;
+}
+
+#content :not(pre) > code::before,
+#content :not(pre) > code::after {
+  content: none;
+}
+
+/* Code blocks */
+#content pre,
+#content pre code {
+  font-family: var(--ap-mono);
+  font-size: 13.25px;
+  line-height: 1.7;
+}
+
+#content .code-block {
+  border: 1px solid var(--ap-rule);
+  border-radius: 14px;
+  box-shadow: 0 1px 0 rgba(20, 20, 15, 0.02), 0 8px 24px -16px rgba(20, 20, 15, 0.18);
+}
+
+html.dark #content .code-block {
+  box-shadow: none;
+}
+
+/* Tables */
+#content table {
+  font-size: 14.5px;
+  line-height: 1.6;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+#content thead th {
+  font-family: var(--ap-mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ap-muted);
+  border-bottom: 1px solid var(--ap-rule);
+  padding-bottom: 0.7rem;
+}
+
+#content tbody td {
+  border-bottom: 1px solid var(--ap-rule);
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  vertical-align: top;
+}
+
+#content tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+#content tbody td:first-child {
+  color: var(--ap-ink);
+  white-space: nowrap;
+}
+
+/* Lists */
+#content ul > li::marker {
+  color: var(--ap-accent);
+}
+
+/* Cards */
+#content a[class*="card"] {
+  border-radius: 14px;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#content a[class*="card"]:hover {
+  border-color: var(--ap-accent-line);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -20px rgba(14, 110, 92, 0.45);
+}
+
+/* Sidebar and table of contents */
+#sidebar a,
+#table-of-contents a {
+  font-size: 14px;
+}
+
+#table-of-contents a {
+  font-size: 13px;
+}
+
+/* ---------- Landing page (index.mdx, mode: custom) ---------- */
+.ap-landing {
+  --ap-serif: "Newsreader", Georgia, serif;
+  color: var(--ap-body);
+  font-size: 17px;
+  line-height: 1.7;
+  padding-bottom: 6rem;
+}
+
+.ap-wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.ap-landing code {
+  font-family: var(--ap-mono);
+  font-size: 0.84em;
+  color: var(--ap-accent);
+  background: var(--ap-accent-soft);
+  border: 1px solid var(--ap-accent-line);
+  border-radius: 5px;
+  padding: 0.08em 0.36em;
+}
+
+.ap-landing a:not(.ap-btn):not(.ap-path) {
+  color: var(--ap-accent);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--ap-accent-line);
+  text-underline-offset: 3px;
+}
+
+/* Hero */
+.ap-hero {
+  padding: 5.5rem 0 4.5rem;
+  border-bottom: 1px solid var(--ap-rule);
+  background:
+    radial-gradient(900px 420px at 85% 0%, var(--ap-accent-soft), transparent 70%);
+}
+
+.ap-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 4rem;
+  align-items: center;
+}
+
+.ap-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1.6rem;
+  padding: 0.3rem 0.8rem 0.3rem 0.65rem;
+  font-family: var(--ap-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ap-muted);
+  border: 1px solid var(--ap-rule);
+  border-radius: 999px;
+  background: var(--ap-surface);
+}
+
+.ap-eyebrow code {
+  border: 0;
+  padding: 0;
+  background: none;
+  font-size: 1em;
+}
+
+.ap-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ap-accent);
+  box-shadow: 0 0 0 4px var(--ap-accent-soft);
+}
+
+.ap-display {
+  font-family: var(--ap-serif);
+  font-weight: 500;
+  font-size: clamp(2.6rem, 5.4vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.028em;
+  color: var(--ap-ink);
+  margin: 0;
+}
+
+.ap-lede {
+  margin: 1.6rem 0 0;
+  max-width: 34rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--ap-muted);
+}
+
+.ap-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2.2rem;
+}
+
+.ap-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 1.25rem;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.ap-btn:hover {
+  transform: translateY(-1px);
+}
+
+.ap-btn-primary {
+  background: var(--ap-ink);
+  color: var(--ap-surface);
+}
+
+html.dark .ap-btn-primary {
+  background: var(--ap-accent);
+  color: #08100e;
+}
+
+.ap-btn-ghost {
+  color: var(--ap-ink);
+  border: 1px solid var(--ap-rule);
+  background: var(--ap-surface);
+}
+
+.ap-btn-ghost:hover {
+  border-color: var(--ap-accent-line);
+}
+
+/* The file card in the hero */
+.ap-file {
+  border: 1px solid var(--ap-rule);
+  border-radius: 16px;
+  background: var(--ap-surface);
+  box-shadow: 0 1px 0 rgba(20, 20, 15, 0.03), 0 30px 60px -36px rgba(20, 20, 15, 0.35);
+  overflow: hidden;
+}
+
+html.dark .ap-file {
+  box-shadow: 0 30px 60px -36px rgba(0, 0, 0, 0.8);
+}
+
+.ap-file-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--ap-rule);
+}
+
+.ap-file-bar span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ap-rule);
+}
+
+.ap-file-bar em {
+  margin-left: 0.6rem;
+  font-style: normal;
+  font-family: var(--ap-mono);
+  font-size: 12px;
+  color: var(--ap-muted);
+}
+
+.ap-landing .ap-file-body {
+  margin: 0;
+  padding: 1.2rem 1.3rem 1.3rem;
+  background: none;
+  border: 0;
+  overflow-x: auto;
+}
+
+.ap-landing .ap-file-body code {
+  display: block;
+  white-space: pre;
+  font-size: 12.75px;
+  line-height: 1.75;
+  color: var(--ap-body);
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+.ap-file-body i {
+  font-style: normal;
+  color: var(--ap-accent);
+}
+
+.ap-file-body b {
+  font-weight: 400;
+  color: var(--ap-muted);
+}
+
+/* Sections */
+.ap-section {
+  padding: 5.5rem 0 0;
+}
+
+.ap-kicker {
+  margin: 0 0 0.9rem;
+  font-family: var(--ap-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ap-accent);
+}
+
+.ap-h2 {
+  font-family: var(--ap-serif);
+  font-weight: 500;
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ap-ink);
+  margin: 0;
+}
+
+.ap-narrow {
+  max-width: 40rem;
+}
+
+.ap-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 4rem;
+  align-items: start;
+}
+
+.ap-prose p {
+  margin: 0 0 1.1rem;
+}
+
+.ap-prose strong {
+  color: var(--ap-ink);
+  font-weight: 600;
+}
+
+/* Five rules */
+.ap-rules {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-top: 2.6rem;
+  border-top: 1px solid var(--ap-ink);
+}
+
+.ap-rule {
+  padding: 1.4rem 1.4rem 0 0;
+}
+
+.ap-rule + .ap-rule {
+  padding-left: 1.4rem;
+  border-left: 1px solid var(--ap-rule);
+}
+
+.ap-num {
+  font-family: var(--ap-mono);
+  font-size: 12px;
+  color: var(--ap-accent);
+}
+
+.ap-landing .ap-rule h3,
+.ap-landing .ap-path h3 {
+  font-family: var(--ap-serif);
+  font-weight: 500;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: var(--ap-ink);
+  margin: 0.45rem 0 0.5rem !important;
+}
+
+.ap-rule p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ap-muted);
+}
+
+/* How it works */
+.ap-flow {
+  list-style: none;
+  counter-reset: ap-step;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2.6rem 0 0;
+  padding: 0;
+}
+
+.ap-flow li {
+  counter-increment: ap-step;
+  position: relative;
+  padding: 1.5rem;
+  border: 1px solid var(--ap-rule);
+  border-radius: 14px;
+  background: var(--ap-surface);
+}
+
+.ap-flow li::before {
+  content: "0" counter(ap-step);
+  font-family: var(--ap-mono);
+  font-size: 12px;
+  color: var(--ap-accent);
+}
+
+.ap-flow li span {
+  display: block;
+  margin: 0.4rem 0 0.5rem;
+  font-family: var(--ap-serif);
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--ap-ink);
+}
+
+.ap-flow li p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ap-muted);
+}
+
+/* Three ways in */
+.ap-paths {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2.6rem;
+}
+
+.ap-path {
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem;
+  border: 1px solid var(--ap-rule);
+  border-radius: 16px;
+  background: var(--ap-surface);
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ap-path:hover {
+  border-color: var(--ap-accent-line);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px -26px rgba(14, 110, 92, 0.5);
+}
+
+.ap-path-label {
+  font-family: var(--ap-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ap-muted);
+}
+
+.ap-path p {
+  margin: 0 0 1.2rem;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ap-muted);
+}
+
+.ap-path em {
+  margin-top: auto;
+  font-style: normal;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ap-accent);
+}
+
+.ap-open {
+  margin-top: 5.5rem;
+  border-top: 1px solid var(--ap-rule);
+}
+
+/* Narrow screens */
+@media (max-width: 960px) {
+  .ap-hero {
+    padding: 3.5rem 0 3rem;
+  }
+  .ap-hero-grid,
+  .ap-split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+  .ap-rules {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .ap-rule,
+  .ap-rule + .ap-rule {
+    padding: 1.2rem 1rem 1.2rem 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--ap-rule);
+  }
+  .ap-flow,
+  .ap-paths {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ap-section {
+    padding-top: 4rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .ap-wrap {
+    padding: 0 16px;
+  }
+  .ap-rules {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,6 +1,9 @@
-# Profile: parallel (version 1)
+---
+title: "Profile: parallel"
+description: "Fork and join: several steps ready at once, continuing when all have finished."
+---
 
-Version `parallel-1`, draft, 6 October 2026. Extends the [specification](../specification.md). Written against the 23 questions an [independent review](../../research/review-round-2.md) raised for the major-incident process, and revised after the [third review](../../research/review-round-3.md); Appendix A maps each question to the sentence that answers it.
+Version `parallel-1`, draft, 6 October 2026. Extends the [specification](/spec/specification). Written against the 23 questions an [independent review](https://github.com/agentprocess/agentprocess/blob/main/research/review-round-2.md) raised for the major-incident process, and revised after the [third review](https://github.com/agentprocess/agentprocess/blob/main/research/review-round-3.md); Appendix A maps each question to the sentence that answers it.
 
 A server that implements this profile lists `parallel-1` in `describe.profiles`. A process uses it by having a step with the `parallel:` key. No other declaration exists. A server without the profile refuses such a process at publication.
 

@@ -1,0 +1,133 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "aspen",
+  "name": "Agent Process",
+  "description": "An open protocol for business processes that AI agents and people work through together.",
+  "colors": {
+    "primary": "#0E6E5C",
+    "light": "#5BD4B5",
+    "dark": "#0E6E5C"
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "favicon": "/favicon.svg",
+  "fonts": {
+    "heading": {
+      "family": "Newsreader",
+      "weight": 500
+    },
+    "body": {
+      "family": "Geist",
+      "weight": 400
+    }
+  },
+  "background": {
+    "color": {
+      "light": "#FAF9F6",
+      "dark": "#0B0C0C"
+    }
+  },
+  "styling": {
+    "eyebrows": "section",
+    "codeblocks": {
+      "theme": {
+        "light": "vitesse-light",
+        "dark": "vitesse-dark"
+      }
+    }
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Specification",
+        "href": "/spec/specification"
+      },
+      {
+        "label": "Quickstart",
+        "href": "/authoring/quickstart"
+      }
+    ],
+    "primary": {
+      "type": "github",
+      "href": "https://github.com/agentprocess/agentprocess"
+    }
+  },
+  "navigation": {
+    "pages": [
+      "index",
+      {
+        "group": "Specification",
+        "pages": [
+          "spec/specification",
+          "spec/tools",
+          "spec/profiles/parallel",
+          "spec/profiles/check",
+          "spec/revisions"
+        ]
+      },
+      {
+        "group": "For process authors",
+        "pages": [
+          "authoring/quickstart",
+          "authoring/best-practices"
+        ]
+      },
+      {
+        "group": "For agent builders",
+        "pages": [
+          "agents/adding-support",
+          "agents/skill"
+        ]
+      },
+      {
+        "group": "For server implementers",
+        "pages": [
+          "servers/implementing",
+          "servers/conformance"
+        ]
+      },
+      "research"
+    ]
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/agentprocess"
+    }
+  },
+  "redirects": [
+    {
+      "source": "/specification",
+      "destination": "/spec/specification"
+    },
+    {
+      "source": "/specification/tools",
+      "destination": "/spec/tools"
+    },
+    {
+      "source": "/specification/profiles/parallel",
+      "destination": "/spec/profiles/parallel"
+    },
+    {
+      "source": "/specification/profiles/check",
+      "destination": "/spec/profiles/check"
+    },
+    {
+      "source": "/specification/changelog",
+      "destination": "/spec/revisions"
+    }
+  ]
+}

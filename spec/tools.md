@@ -1,10 +1,13 @@
-# Agent Process tool contracts
+---
+title: "Tool contracts"
+description: "The exact arguments, results and errors of every tool. Part of the specification."
+---
 
-Version `core-2`. Companion to the [specification](specification.md) §4. These shapes are normative. Types use the field notation of the core: a bare type name, `?` for optional, `[]` for lists.
+Version `core-2`. Companion to the [specification](/spec/specification) §4. These shapes are normative. Types use the field notation of the core: a bare type name, `?` for optional, `[]` for lists.
 
 Every result is `{ ok: true, data: <shape below> }` or `{ ok: false, error: { code, message, issues?: string[] } }`. All writes take `requestId: string`.
 
-JSON Schemas (draft 2020-12) for every tool's arguments and result and for the shared shapes are in [`schemas/core-2/`](../schemas/core-2/index.json); `index.json` lists them and their `$id`s are under `https://agentprocess.io/schemas/core-2/`. Where a schema and this file disagree, this file wins and the schema is a bug. The agent skill that teaches the loop is [skills/agentprocess](../skills/agentprocess/SKILL.md).
+JSON Schemas (draft 2020-12) for every tool's arguments and result and for the shared shapes are in [`schemas/core-2/`](https://agentprocess.io/schemas/core-2/index.json); `index.json` lists them and their `$id`s are under `https://agentprocess.io/schemas/core-2/`. Where a schema and this file disagree, this file wins and the schema is a bug. The agent skill that teaches the loop is [skills/agentprocess](/agents/skill).
 
 ## Shared shapes
 

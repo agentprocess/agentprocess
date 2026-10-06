@@ -45,10 +45,10 @@ Agents can do the steps of real work. What they lack is the thing around the ste
 | [`spec/specification.md`](spec/specification.md) | The specification: the file format, running, tools, evidence, and what a server guarantees. |
 | [`spec/tools.md`](spec/tools.md) | The exact argument and result shape of every tool. Part of the specification. |
 | [`spec/profiles/`](spec/profiles/) | Optional profiles: [`parallel`](spec/profiles/parallel.md) (fork and join) and [`check`](spec/profiles/check.md) (model checks on submissions). |
-| [`spec/changelog.md`](spec/changelog.md) | Every revision and why it was made. |
+| [`spec/revisions.md`](spec/revisions.md) | Every revision and why it was made. |
 | [`schemas/core-2/`](schemas/core-2/index.json) | JSON Schemas (draft 2020-12) for the document, the shared shapes and every tool. |
 | [`skills/agentprocess/`](skills/agentprocess/SKILL.md) | An [Agent Skill](https://agentskills.io) that teaches an agent the loop and how to write a `PROCESS.md`. Works on any conforming server. |
-| [`conformance/`](conformance/README.md) | Ten processes written by independent reviewers, used as conformance fixtures. |
+| [`conformance/`](conformance/README.md) | Twelve conformance fixtures: ten processes written by independent reviewers, and one for each profile. |
 | [`research/`](research/README.md) | The three independent reviews that shaped the specification. |
 
 ## Status

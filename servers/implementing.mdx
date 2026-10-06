@@ -1,0 +1,89 @@
+---
+title: "Implementing a process server"
+sidebarTitle: "Implementing a server"
+description: "What a conforming server parses, refuses, stores and enforces, in the order you will build it."
+---
+
+A process server holds published processes and their runs, hands steps to agents and people, accepts their output, and keeps the record. This page walks through what to build. The [specification](/spec/specification) and the [tool contracts](/spec/tools) are normative; where this page and they differ, they win.
+
+A server **conforms** when it keeps the five guarantees, offers the required tools with the contracts in the tools document, refuses what the specification says to refuse, and reports what it offers in `describe`.
+
+## Step 1: Parse and publish
+
+**Parse.** Split `PROCESS.md` into frontmatter and body. Parse the frontmatter as YAML 1.2 with the core schema only, so `yes` and `no` are strings. Refuse duplicate keys and unknown fields anywhere.
+
+**Validate.** Refuse a file that breaks any rule in §2, and report every issue at once:
+
+- `name` matches `^[a-z0-9]+(-[a-z0-9]+)*$`, 1–64 characters, and equals the folder name when a folder is imported.
+- Each step has a unique `id` matching `^[a-z][a-z0-9_-]{0,63}$` and exactly one kind key, with only the optional keys that kind allows.
+- Every `next`, `on_reject` and `on_timeout` names an existing step. A list `next` has two or more routes and appears only on `agent` and `task`.
+- Every step is reachable from the first. A non-finish step that is last in the list names `next`. A `finish` has none.
+- Following `next` and `on_timeout` only, no step is visited twice.
+- A `person` path is `inputs.<field>` or `steps.<id>.output.<field>` naming a declared `person` field, and a `wait_until` path names a declared `datetime` field.
+- Field types are the eight core types, `one_of` values have the field's type, and durations are an integer followed by `m`, `h` or `d`.
+
+Also refuse a process that needs a profile you do not implement, or a tool you do not offer: `upload` for `evidence: [file]`, and `send_event` for `wait_for`.
+
+**Bind and publish.** On import, create a draft and ask the importer to map each role name to a group. Publishing creates a numbered version that never changes, with a content hash: SHA-256 over the RFC 8785 canonical JSON of the parsed frontmatter, one newline character, then the body exactly as written. A package grants nothing in the organization that imports it.
+
+## Step 2: Runs and run data
+
+`start_run` checks inputs against `inputs`, pins the latest version (or the one requested), and makes the first step ready. A run has `inputs` and, for each completed step, `steps.<id>` with what the step recorded: output, evidence, summary, route and reason for agent and task steps; decision and note for approvals; who and when for everything; earlier completions in `history`.
+
+Track run states (`active`, `waiting`, `ended` with an outcome, `cancelled`) and step states (`ready`, `claimed`, `waiting`, `done`, `failed`, `cancelled`, or `null` when not reached). A write returns only after every automatic transition it triggered has been applied, so the run view it returns already shows what became ready.
+
+Bound run data with a cap you publish in `describe.limits.runDataBytes`. It applies to inputs at start, to held events, and to every submission.
+
+## Step 3: Claims, leases and tokens
+
+`get_work` for an agent lists ready agent steps it may claim, oldest first, each with the exact `claim` call. `claim` gives one caller the step for the lease you publish in `describe`, and returns an opaque, unforgeable token that never appears in `get_run`.
+
+- `renew` returns a new token and expiry and invalidates the old one at once. Keep its `progress` note on the step.
+- When a lease ends, the step is claimable immediately, and a submission with the old token is `stale`.
+- Every claim carries `handoff`: the last progress note after an expired lease, the note from a person who returned the step, the issues from a refused submission, or a check result. It is `null` on a first attempt.
+
+## Step 4: Acceptance
+
+A submission completes a step only when every required output field is present with its declared type and within `one_of`, including inside lists; no undeclared field is present; every required evidence kind is attached and verified; a chosen `next` is one of the allowed routes with a non-blank reason; an agent's submission has a `summary`; and run data stays within the cap. Otherwise change nothing and return `not_accepted` with every issue at once.
+
+Verify `file` evidence: the upload exists in the organization and its bytes still match the hash recorded at upload. Record `link` evidence as stated. Wherever run data is returned, give each file item a short-lived `url`.
+
+## Step 5: People
+
+A person step creates one work item. A role maps to a group, any member may complete the item, and the first decision wins. `get_work` called by a person lists their open work items, each with its exact `decide` call and the decisions it accepts.
+
+- Every read that returns a work item returns a `snapshot`, a hash of the run data at that moment. A decision carries it, and is refused as `stale` if the run data has changed since.
+- Check `run_ended`, then `already_decided`, before `stale`, so a second group member learns the truth.
+- **Only a human identity decides.** Refuse `decide` from any agent identity. Whether a credential is being used by its person is established by your authentication, outside the protocol; do not accept a person's credential presented by an agent client unless your authentication establishes that.
+
+`escalate` hands an agent step to a person with the agent's note. That person can return it with a note, complete it under the same acceptance rules, or fail the run.
+
+## Step 6: Rework, waits and events
+
+**Rejection.** An approval rejected into `on_reject` makes that step ready again. Every step completed after it, other than the rejecting approval, moves its current fields into `history` and becomes `null`. The rejecting approval keeps its decision and note current, so the returned-to step reads the note. Without `on_reject`, the run ends `rejected`.
+
+**Deadlines.** When `due` passes, mark the step overdue and notify the assignee and the organization's operators. The work stays open.
+
+**Waits.** `wait` continues after its duration. `wait_until` continues at the datetime in run data, at once if it has passed, and fails the run if the value is missing or invalid. `wait_for` continues when `send_event` delivers its event, or at `on_timeout` after `timeout`.
+
+**Events.** Hold events per run. An event that arrives before its wait is ready is kept and consumed when the wait becomes ready. Each delivery satisfies one wait, and held events with the same name are consumed oldest first. An event with no matching wait is held until the run ends, then discarded.
+
+**Ending.** When a run ends or is cancelled, cancel every unfinished step, remove every open work item and invalidate every token. From then on, every write to the run other than a replay returns `conflict` with `run_ended`, checked before anything else.
+
+## Step 7: Idempotency and concurrency
+
+Every write carries a client `requestId`, unique within the organization. Repeating it with the same arguments returns the original result, token included, and changes nothing. Repeating it with different arguments is a `conflict`. A call that failed is not recorded, so a retry can succeed. The server, not the client, resolves concurrent writes to one run.
+
+## Step 8: Test runs and describe
+
+A run started with `mode: test` says so in every `get_work` item, claim and work item. Send no real notifications for it, and tell people it is a test.
+
+`describe` reports the protocol version, the profiles you implement (`parallel-1`, `check-1`, and your own), the lease length, the `person` format, the tools you offer, and your limits.
+
+## Profiles
+
+Implement [`parallel`](/spec/profiles/parallel) when processes need several steps at once, and [`check`](/spec/profiles/check) when you have an evaluator that can answer yes/no, choice and rubric questions. Advertise a profile only while you can honour it. Your own features belong in your own profile: new frontmatter keys, bound at publication, with anything they add to a claim in `extensions`.
+
+## Check your work
+
+Run the [conformance fixtures](/servers/conformance) through your server.

@@ -1,6 +1,9 @@
-# Profile: check (version 1)
+---
+title: "Profile: check"
+description: "A model answers fixed questions about each submission; a person sees only what it is unsure of."
+---
 
-Version `check-1`, draft, 6 October 2026. Extends the [specification](../specification.md). The profile names no model or provider: any evaluator that can answer the three question kinds below (yes/no with a probability, a choice, a rubric level) conforms.
+Version `check-1`, draft, 6 October 2026. Extends the [specification](/spec/specification). The profile names no model or provider: any evaluator that can answer the three question kinds below (yes/no with a probability, a choice, a rubric level) conforms.
 
 A server that implements this profile lists `check-1` in `describe.profiles` and the limits in §5, and lists it only while an evaluator is configured. A process uses it by putting a `check:` key on an `agent` or `task` step. A server without the profile, or without an evaluator configured, refuses such a process at publication.
 
