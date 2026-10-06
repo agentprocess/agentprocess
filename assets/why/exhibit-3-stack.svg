@@ -15,7 +15,7 @@
 <rect x="32" y="76" width="736" height="48" rx="8" fill="#0E5E59" stroke="#0E5E59"/>
 <text x="48" y="105" font-size="14.5" font-weight="600" fill="#FFFFFF" text-anchor="start">Process</text>
 <text x="200" y="105" font-size="12.5" font-weight="400" fill="#D5ECE8" text-anchor="start">Next step, who decides, what is done, the record</text>
-<text x="585" y="105" font-size="12.5" font-weight="600" fill="#FFFFFF" text-anchor="start">Agent Process · open, draft</text>
+<text x="585" y="105" font-size="12.5" font-weight="600" fill="#FFFFFF" text-anchor="start">Agent Process · open protocol</text>
 <rect x="32" y="134" width="736" height="48" rx="8" fill="#E6F0EE" stroke="#C9E3DE"/>
 <text x="48" y="163" font-size="14.5" font-weight="600" fill="#1C1D1A" text-anchor="start">Know-how</text>
 <text x="200" y="163" font-size="12.5" font-weight="400" fill="#53564E" text-anchor="start">How is this kind of task done well?</text>

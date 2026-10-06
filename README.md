@@ -11,7 +11,7 @@
 
 Write a process as one plain-language file. Any agent does the steps. People make the decisions.<br>A process server keeps the order, checks the work and keeps the record.
 
-[![Spec: core-2 draft](https://img.shields.io/badge/spec-core--2%20draft-0E5E59)](spec/specification.md)
+[![Spec: core-2](https://img.shields.io/badge/spec-core--2-0E5E59)](spec/specification.md)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-1C1D1A)](LICENSE)
 [![Transport: MCP](https://img.shields.io/badge/transport-MCP-1C1D1A)](https://modelcontextprotocol.io)
 [![Agent Skill included](https://img.shields.io/badge/agent%20skill-included-0E5E59)](skills/agentprocess/SKILL.md)
@@ -230,16 +230,16 @@ mkdir -p .agents/skills && cp -r agentprocess/skills/agentprocess .agents/skills
 
 Everything here is also published, rendered, at **[agentprocess.io/docs](https://agentprocess.io/docs/)**, with each page available as Markdown and all of it in one file at [`/llms-full.txt`](https://agentprocess.io/llms-full.txt).
 
-## Status and roadmap
+## Roadmap
 
-Agent Process is a **draft**, version `core-2`, revision 10. One server implements it today. It will be called a standard only when a second, independent implementation passes the conformance suite.
+Current version: `core-2`, revision 10 ([revisions](spec/revisions.md)).
 
 - [x] Specification, tool contracts and the `parallel` and `check` profiles
 - [x] JSON Schemas for the document, shared shapes and every tool
 - [x] Agent skill for any Agent Skills-compatible agent
 - [x] Conformance fixtures from independent reviews
 - [x] A reference server running the full protocol
-- [ ] A second, independent implementation
+- [ ] More server implementations, in more languages
 - [ ] A portable conformance runner that tests any server over MCP
 - [ ] An open reference library for parsing, validation and content hashing
 

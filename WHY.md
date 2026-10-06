@@ -4,7 +4,7 @@ sidebarTitle: "Why Agent Process"
 description: "Agents can do the work. Processes are what make it count. The case for an open process layer, what it solves today, and what it does not."
 ---
 
-October 2026 · Agent Process · Draft `core-2`
+October 2026 · Agent Process · Version `core-2`
 
 > **Key takeaways**
 >
@@ -12,7 +12,7 @@ October 2026 · Agent Process · Draft `core-2`
 > 2. **The bottleneck is the process around the work, not the model doing it.** Organizations that get value redesign their workflows. What a capable agent lacks is order, hand-offs to people, a check that the output is what was asked for, and a record.
 > 3. **The layers below are standardized; the process layer is not.** MCP connects agents to tools and Agent Skills gives them know-how. Nothing open says which step comes next, when a person must decide, what counts as done, and what is kept.
 > 4. **Agent Process is that layer, and deliberately small.** One plain-language file per process, a server that enforces five guarantees, and agents from any vendor connecting over MCP.
-> 5. **It works today, as a draft.** The specification, schemas, agent skill and conformance fixtures are open. One server implements it. The next milestone is a second, independent implementation.
+> 5. **It works today.** The specification, schemas, agent skill and conformance fixtures are open, and a reference server runs the full protocol.
 
 ## 1. Agent adoption is broad, but little of it reaches the processes that run a business
 
@@ -67,7 +67,7 @@ Organizations already have tools for parts of this. None was built for work shar
 | Ticketing and approval tools | ◐ | ○ | ● | ○ | ● | ○ |
 | **Agent Process** | **●** | **●** | **●** | **●** | **●** | **●** |
 
-*● Designed for it ◐ Possible with configuration or code ○ Not addressed. Assessment of typical products in each category; individual products vary. Agent Process is a draft with one implementation.*
+*● Designed for it ◐ Possible with configuration or code ○ Not addressed. Assessment of typical products in each category; individual products vary.*
 
 Workflow engines are the closest fit, and the lesson from them is instructive: they model everything, so their definitions become software that only specialists can change. Instructions alone sit at the other extreme: anyone can write them and any agent can read them, but nothing enforces them. Agent Process takes a position between the two.
 
@@ -89,7 +89,7 @@ Three design choices follow from the evidence above.
 
 - **The format carries as little as possible.** The rule is borrowed from Agent Skills: instructions and the model carry the rest. There are no decision tables, scripting languages or expression syntax. A process owner can read and change every line.
 - **The wire carries everything exactly.** An agent can fill a gap in instructions; it cannot fill a gap in a tool contract. Fourteen MCP tools have fixed names, arguments, results and seven error codes, published as JSON Schemas.
-- **Features arrive only on demonstrated need.** Before any server existed, three independent reviews wrote ten real processes against the draft. Eight fit the core, one needed a workaround and one needed parallel work, which became the only structural profile. [9]
+- **Features arrive only on demonstrated need.** Before any server existed, three independent reviews wrote ten real processes against the specification. Eight fit the core, one needed a workaround and one needed parallel work, which became the only structural profile. [9]
 
 ## 6. What it solves today
 
@@ -138,13 +138,12 @@ Being precise about limits is part of the design.
 - **It is not a workflow engine that runs code.** The server keeps order and the record; it does not execute scripts or call systems on the process's behalf.
 - **It does not prove business correctness.** Field and evidence rules prove that the output has the declared shape, not that it is right. People and checks judge that.
 - **It does not establish authority or compliance.** Approval matrices, segregation of duties and regulatory conformity remain the organization's responsibility.
-- **It is a draft.** One implementation exists. There are no adoption figures yet, and none are claimed here.
 
 ## 10. What happens next
 
-A protocol becomes a standard when others can implement it without its authors. The work ahead is ordered accordingly:
+The work ahead makes Agent Process easy to implement and adopt:
 
-1. **A second, independent implementation**, in another language, from the specification, schemas and fixtures alone.
+1. **More server implementations**, in more languages, built from the specification, schemas and fixtures.
 2. **A portable conformance runner** that tests any server over MCP.
 3. **An open reference library** for parsing, validation and content hashing.
 4. **Real processes in real organizations**, run first with approvals and advisory checks, so every future change comes from use rather than theory.

@@ -3,7 +3,7 @@ title: "Specification"
 description: "The PROCESS.md format, how a server runs it, and the five things a server guarantees."
 ---
 
-Version `core-2`, draft, 6 October 2026. Tool contracts: [tools](tools.md), part of this specification. Profiles: [parallel](profiles/parallel.md), [check](profiles/check.md). History: [revisions](revisions.md). JSON Schemas: [`schemas/core-2/`](../schemas/core-2/index.json).
+Version `core-2`, 6 October 2026. Tool contracts: [tools](tools.md), part of this specification. Profiles: [parallel](profiles/parallel.md), [check](profiles/check.md). History: [revisions](revisions.md). JSON Schemas: [`schemas/core-2/`](../schemas/core-2/index.json).
 
 The key words MUST, MUST NOT, SHOULD and MAY are to be read as in RFC 2119.
 
