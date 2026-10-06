@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Propose a change or a new profile
+    url: https://github.com/agentprocess/agentprocess/discussions/new?category=ideas
+    about: Start from a real process the core cannot express. Proposals are discussed before any pull request.
+  - name: Ask a question
+    url: https://github.com/agentprocess/agentprocess/discussions/new?category=q-a
+    about: How to write a process, connect an agent or implement a server.
+  - name: Read the docs
+    url: https://agentprocess.io/docs/
+    about: Specification, guides and conformance fixtures.

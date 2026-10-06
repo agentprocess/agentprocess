@@ -1,0 +1,34 @@
+name: Specification bug
+description: A contradiction, an ambiguity two servers could read differently, a schema that disagrees with the tools document, or a broken example.
+labels: [spec-bug]
+body:
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: File and section, for example spec/specification.md §3.4 or spec/tools.md, claim.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong
+      description: Quote the text. If two readings are possible, describe both and what each server would do.
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Example
+      description: The PROCESS.md, tool call or trace that shows it.
+      render: markdown
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested fix
+  - type: checkboxes
+    id: ai
+    attributes:
+      label: AI assistance
+      options:
+        - label: I used AI tools to help write this and have checked it against the specification.

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 470" width="1200" height="470" role="img" aria-label="A PROCESS.md file is published to a process server, which hands steps to agents and people and keeps the run record.">
+<rect x="20" y="30" width="360" height="330" rx="14" fill="#161B22" stroke="#30363D"/>
+<line x1="20" y1="70" x2="380" y2="70" stroke="#30363D"/>
+<circle cx="40" cy="50" r="4" fill="#30363D"/>
+<circle cx="54" cy="50" r="4" fill="#30363D"/>
+<circle cx="68" cy="50" r="4" fill="#30363D"/>
+<text x="90" y="55" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="500" fill="#9198A1" text-anchor="start">supplier-onboarding/PROCESS.md</text>
+<text x="40" y="96.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" font-weight="400" fill="#9198A1" text-anchor="start">---</text>
+<text x="40" y="115.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" xml:space="preserve"><tspan fill="#5CC2B6">name:</tspan><tspan fill="#E6EDF3"> supplier-onboarding</tspan></text>
+<text x="40" y="135.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" xml:space="preserve"><tspan fill="#5CC2B6">steps:</tspan><tspan fill="#E6EDF3"></tspan></text>
+<text x="40" y="154.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" xml:space="preserve"><tspan fill="#5CC2B6">  - id:</tspan><tspan fill="#E6EDF3"> check_vendor</tspan></text>
+<text x="40" y="174.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" xml:space="preserve"><tspan fill="#5CC2B6">    agent:</tspan><tspan fill="#E6EDF3"> Screen the vendor.</tspan></text>
+<text x="40" y="193.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" xml:space="preserve"><tspan fill="#5CC2B6">    output:</tspan><tspan fill="#E6EDF3"> { cleared: boolean }</tspan></text>
+<text x="40" y="213.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" xml:space="preserve"><tspan fill="#5CC2B6">    evidence:</tspan><tspan fill="#E6EDF3"> [file]</tspan></text>
+<text x="40" y="232.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" xml:space="preserve"><tspan fill="#5CC2B6">  - id:</tspan><tspan fill="#E6EDF3"> approve</tspan></text>
+<text x="40" y="252.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" xml:space="preserve"><tspan fill="#5CC2B6">    person:</tspan><tspan fill="#E6EDF3"> finance-approver</tspan></text>
+<text x="40" y="271.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" xml:space="preserve"><tspan fill="#5CC2B6">    approve:</tspan><tspan fill="#E6EDF3"> Approve if cleared.</tspan></text>
+<text x="40" y="291.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" xml:space="preserve"><tspan fill="#5CC2B6">    on_reject:</tspan><tspan fill="#E6EDF3"> check_vendor</tspan></text>
+<text x="40" y="310.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" xml:space="preserve"><tspan fill="#5CC2B6">  - id:</tspan><tspan fill="#E6EDF3"> done</tspan></text>
+<text x="40" y="330.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" xml:space="preserve"><tspan fill="#5CC2B6">    finish:</tspan><tspan fill="#E6EDF3"> onboarded</tspan></text>
+<text x="20" y="390" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#9198A1" text-anchor="start" letter-spacing="1.2">ONE PLAIN-LANGUAGE FILE</text>
+<rect x="450" y="30" width="300" height="330" rx="14" fill="#2F8F84"/>
+<text x="474" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="650" fill="#FFFFFF" text-anchor="start">Process server</text>
+<text x="474" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#D4EFEA" text-anchor="start">enforces five things, nothing else</text>
+<rect x="474" y="116" width="252" height="36" rx="9" fill="#FFFFFF" fill-opacity="0.12" stroke="#FFFFFF" stroke-opacity="0.22"/>
+<text x="490" y="139" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#D4EFEA" text-anchor="start">01</text>
+<text x="522" y="139" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF" text-anchor="start">Order</text>
+<rect x="474" y="162" width="252" height="36" rx="9" fill="#FFFFFF" fill-opacity="0.12" stroke="#FFFFFF" stroke-opacity="0.22"/>
+<text x="490" y="185" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#D4EFEA" text-anchor="start">02</text>
+<text x="522" y="185" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF" text-anchor="start">One actor at a time</text>
+<rect x="474" y="208" width="252" height="36" rx="9" fill="#FFFFFF" fill-opacity="0.12" stroke="#FFFFFF" stroke-opacity="0.22"/>
+<text x="490" y="231" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#D4EFEA" text-anchor="start">03</text>
+<text x="522" y="231" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF" text-anchor="start">Acceptance</text>
+<rect x="474" y="254" width="252" height="36" rx="9" fill="#FFFFFF" fill-opacity="0.12" stroke="#FFFFFF" stroke-opacity="0.22"/>
+<text x="490" y="277" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#D4EFEA" text-anchor="start">04</text>
+<text x="522" y="277" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF" text-anchor="start">People decide</text>
+<rect x="474" y="300" width="252" height="36" rx="9" fill="#FFFFFF" fill-opacity="0.12" stroke="#FFFFFF" stroke-opacity="0.22"/>
+<text x="490" y="323" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#D4EFEA" text-anchor="start">05</text>
+<text x="522" y="323" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF" text-anchor="start">Immutability</text>
+<text x="450" y="390" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#9198A1" text-anchor="start" letter-spacing="1.2">ANY CONFORMING SERVER</text>
+<path d="M388 195 L437 195" stroke="#6E7681" stroke-width="1.6" fill="none"/>
+<path d="M435 190 L443 195 L435 200" stroke="#6E7681" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+<text x="416.0" y="185" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#9198A1" text-anchor="middle" letter-spacing="0.6">PUBLISH</text>
+<rect x="820" y="30" width="360" height="140" rx="14" fill="#161B22" stroke="#30363D"/>
+<text x="842" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="650" fill="#E6EDF3" text-anchor="start">Agents</text>
+<text x="920" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#9198A1" text-anchor="start">any vendor, over MCP</text>
+<rect x="842" y="86" width="83.6" height="30" rx="8" fill="#12302C" stroke="#1F4B45"/>
+<text x="883.8" y="106" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" font-weight="600" fill="#5CC2B6" text-anchor="middle">get_work</text>
+<path d="M929.6 101 L944.6 101" stroke="#6E7681" stroke-width="1.6" fill="none"/>
+<path d="M942.6 96 L950.6 101 L942.6 106" stroke="#6E7681" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+<rect x="955.6" y="86" width="59.0" height="30" rx="8" fill="#12302C" stroke="#1F4B45"/>
+<text x="985.1" y="106" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" font-weight="600" fill="#5CC2B6" text-anchor="middle">claim</text>
+<path d="M1018.6 101 L1033.6 101" stroke="#6E7681" stroke-width="1.6" fill="none"/>
+<path d="M1031.6 96 L1039.6 101 L1031.6 106" stroke="#6E7681" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+<rect x="1044.6" y="86" width="67.19999999999999" height="30" rx="8" fill="#12302C" stroke="#1F4B45"/>
+<text x="1078.1999999999998" y="106" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" font-weight="600" fill="#5CC2B6" text-anchor="middle">submit</text>
+<text x="842" y="146" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198A1" text-anchor="start">escalate when stuck</text>
+<path d="M758 100 L807 100" stroke="#6E7681" stroke-width="1.6" fill="none"/>
+<path d="M805 95 L813 100 L805 105" stroke="#6E7681" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+<rect x="820" y="190" width="360" height="140" rx="14" fill="#161B22" stroke="#30363D"/>
+<text x="842" y="224" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="650" fill="#E6EDF3" text-anchor="start">People</text>
+<text x="916" y="224" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#9198A1" text-anchor="start">approve, decide, take over</text>
+<rect x="842" y="246" width="91.8" height="30" rx="8" fill="#12302C" stroke="#1F4B45"/>
+<text x="887.9" y="266" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" font-weight="600" fill="#5CC2B6" text-anchor="middle">work item</text>
+<path d="M937.8 261 L952.8 261" stroke="#6E7681" stroke-width="1.6" fill="none"/>
+<path d="M950.8 256 L958.8 261 L950.8 266" stroke="#6E7681" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+<rect x="963.8" y="246" width="67.19999999999999" height="30" rx="8" fill="#12302C" stroke="#1F4B45"/>
+<text x="997.4" y="266" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" font-weight="600" fill="#5CC2B6" text-anchor="middle">decide</text>
+<text x="842" y="306" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198A1" text-anchor="start">approved · rejected · returned</text>
+<path d="M758 260 L807 260" stroke="#6E7681" stroke-width="1.6" fill="none"/>
+<path d="M805 255 L813 260 L805 265" stroke="#6E7681" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+<text x="820" y="360" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="1" font-weight="400" fill="#9198A1" text-anchor="start"></text>
+<rect x="820" y="340" width="360" height="20" rx="0" fill="none"/>
+<rect x="450" y="400" width="730" height="56" rx="12" fill="#12302C" stroke="#1F4B45"/>
+<text x="474" y="433" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="650" fill="#E6EDF3" text-anchor="start">Run record</text>
+<text x="580" y="433" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#9198A1" text-anchor="start">who · when · output · evidence · summary · pinned version · history</text>
+</svg>
