@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 412" width="800" height="412" role="img" aria-labelledby="t1" font-family="Figtree, 'Helvetica Neue', Helvetica, Arial, sans-serif">
+<title id="t1">Exhibit 1: Most organizations use AI; few have scaled agents in any one function</title>
+<rect x="0.5" y="0.5" width="799" height="411" rx="14" fill="#FFFFFF" stroke="#E4E1D8"/>
+<text x="32" y="40" font-size="11" font-weight="600" fill="#0E5E59" text-anchor="start" letter-spacing="1.4">EXHIBIT 1</text>
+<text x="32" y="68" font-size="19" font-weight="600" fill="#1C1D1A" text-anchor="start">Most organizations use AI; few have scaled agents in any one function</text>
+<text x="32" y="92" font-size="13" font-weight="400" fill="#53564E" text-anchor="start">Share of organizations, %, 2025</text>
+<line x1="32" y1="110" x2="768" y2="110" stroke="#E4E1D8"/>
+<g transform="translate(0,124)"><text x="32" y="34" font-size="13.5" font-weight="400" fill="#53564E" text-anchor="start">Use AI in at least one business function</text>
+<rect x="360" y="18" width="360" height="24" rx="4" fill="#F4F2EC"/>
+<rect x="360" y="18" width="316.8" height="24" rx="4" fill="#BDB8AB"/>
+<text x="686.8" y="35" font-size="14" font-weight="500" fill="#53564E" text-anchor="start">88%</text>
+<text x="32" y="84" font-size="13.5" font-weight="400" fill="#53564E" text-anchor="start">Use or experiment with AI agents</text>
+<rect x="360" y="68" width="360" height="24" rx="4" fill="#F4F2EC"/>
+<rect x="360" y="68" width="223.2" height="24" rx="4" fill="#BDB8AB"/>
+<text x="593.2" y="85" font-size="14" font-weight="500" fill="#53564E" text-anchor="start">62%</text>
+<text x="32" y="134" font-size="13.5" font-weight="500" fill="#1C1D1A" text-anchor="start">Scaling an agentic AI system anywhere</text>
+<rect x="360" y="118" width="360" height="24" rx="4" fill="#F4F2EC"/>
+<rect x="360" y="118" width="82.8" height="24" rx="4" fill="#0E5E59"/>
+<text x="452.8" y="135" font-size="14" font-weight="700" fill="#0E5E59" text-anchor="start">23%</text>
+<text x="32" y="184" font-size="13.5" font-weight="500" fill="#1C1D1A" text-anchor="start">Scaling AI agents in any one business function</text>
+<rect x="360" y="168" width="360" height="24" rx="4" fill="#F4F2EC"/>
+<rect x="360" y="168" width="36.0" height="24" rx="4" fill="#0E5E59"/>
+<text x="406.0" y="185" font-size="14" font-weight="700" fill="#0E5E59" text-anchor="start">≤10%</text>
+<text x="32" y="226" font-size="13" font-weight="600" fill="#0E5E59" text-anchor="start">The gap between using AI and running processes with it is where value is lost.</text></g>
+<line x1="32" y1="368" x2="768" y2="368" stroke="#E4E1D8"/>
+<text x="32" y="390" font-size="11" font-weight="400" fill="#8F8C83" text-anchor="start">Source: McKinsey &amp; Company, The state of AI in 2025 (global survey).</text>
+</svg>

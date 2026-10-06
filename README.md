@@ -38,6 +38,8 @@ The agent screens the vendor, finance approves, and the supplier is onboarded.
 
 Agents can do the steps of real work. What they lack is the thing around the steps: the order, the hand-off to a person who must decide, a check that the output is what was asked for, and a record of who did what. Agent Process puts that in a server and keeps the process file small. A server enforces five things: order, one actor per step at a time, acceptance, people decide, and immutability. Everything scenario-specific stays in plain-language instructions that the agent or person adapts to.
 
+The full case, with the evidence, the alternatives and the limits: [Why Agent Process](WHY.md).
+
 ## Contents
 
 The documentation, rendered from these files, is at [agentprocess.io/docs](https://agentprocess.io/docs/).
