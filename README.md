@@ -40,6 +40,9 @@ Agents can do the steps of real work. What they lack is the thing around the ste
 
 ## Contents
 
+The documentation, rendered from these files, is at [agentprocess.io/docs](https://agentprocess.io/docs/).
+
+
 | Path | What it is |
 |---|---|
 | [`spec/specification.md`](spec/specification.md) | The specification: the file format, running, tools, evidence, and what a server guarantees. |

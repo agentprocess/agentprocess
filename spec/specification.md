@@ -3,7 +3,7 @@ title: "Specification"
 description: "The PROCESS.md format, how a server runs it, and the five things a server guarantees."
 ---
 
-Version `core-2`, draft, 6 October 2026. Tool contracts: [tools](/spec/tools), part of this specification. Profiles: [parallel](/spec/profiles/parallel), [check](/spec/profiles/check). History: [revisions](/spec/revisions). JSON Schemas: [`schemas/core-2/`](https://agentprocess.io/schemas/core-2/index.json).
+Version `core-2`, draft, 6 October 2026. Tool contracts: [tools](tools.md), part of this specification. Profiles: [parallel](profiles/parallel.md), [check](profiles/check.md). History: [revisions](revisions.md). JSON Schemas: [`schemas/core-2/`](../schemas/core-2/index.json).
 
 The key words MUST, MUST NOT, SHOULD and MAY are to be read as in RFC 2119.
 
@@ -197,7 +197,7 @@ When a run ends or is cancelled, every unfinished step becomes `cancelled`, ever
 
 ## 4. MCP tools
 
-All tools are MCP tools over Streamable HTTP with OAuth 2.1 bearer tokens. Every result is `{ ok: true, data }` or `{ ok: false, error: { code, message, issues? } }`. Exact arguments and results, with one example each, are in [tools.md](/spec/tools); they are part of the specification.
+All tools are MCP tools over Streamable HTTP with OAuth 2.1 bearer tokens. Every result is `{ ok: true, data }` or `{ ok: false, error: { code, message, issues? } }`. Exact arguments and results, with one example each, are in [tools.md](tools.md); they are part of the specification.
 
 A write returns only after every automatic transition it triggered has been applied: the run view it returns already shows the steps and work items the write made ready. Every write carries a client `requestId`, unique within the organization. Repeating it with the same arguments returns the original result and changes nothing. Repeating it with different arguments is a `conflict`. A call that failed is not recorded, so a retry can succeed.
 
@@ -268,11 +268,11 @@ A process travels as its folder: `PROCESS.md` alone in core, plus whatever a pro
 
 ## 8. Profiles (not core)
 
-Each is a separate short document. A process uses a profile by using its keys; there is no declaration field. A server advertises what it implements in `describe`, and refuses at publication a process whose keys need a profile it lacks. The [independent reviews](/research) found a demonstrated need for `parallel`; `check` is included because it is how a process earns back the approvals it starts with.
+Each is a separate short document. A process uses a profile by using its keys; there is no declaration field. A server advertises what it implements in `describe`, and refuses at publication a process whose keys need a profile it lacks. The [independent reviews](../research/README.md) found a demonstrated need for `parallel`; `check` is included because it is how a process earns back the approvals it starts with.
 
 | Profile | Adds | Use when |
 |---|---|---|
-| `parallel` | A `parallel:` step that makes several branches ready at once and continues when all have joined. Specified in [profiles/parallel.md](/spec/profiles/parallel). | Several people or agents must work at the same time. |
-| `check` | A `check:` key on agent and task steps: a model answers yes/no, choice or rubric questions about the submission after the objective rules; fail sends it back, unsure sends it to a person. Specified in [profiles/check.md](/spec/profiles/check). | Approvals should happen only when a model is unsure. |
+| `parallel` | A `parallel:` step that makes several branches ready at once and continues when all have joined. Specified in [profiles/parallel.md](profiles/parallel.md). | Several people or agents must work at the same time. |
+| `check` | A `check:` key on agent and task steps: a model answers yes/no, choice or rubric questions about the submission after the objective rules; fail sends it back, unsure sends it to a person. Specified in [profiles/check.md](profiles/check.md). | Approvals should happen only when a model is unsure. |
 
 These two are the only profiles. Others, such as per-item fan-out, deterministic routing tables, subprocesses or server-executed actions, are defined only when a written process cannot be expressed without them, and each would be one page in this style.

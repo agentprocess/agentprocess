@@ -4,9 +4,9 @@ sidebarTitle: "Adding support"
 description: "Connect an agent to any conforming process server: find work, claim it, do it, and submit the result."
 ---
 
-An agent works a process by calling tools on a process server over MCP. The server never runs your agent's code, and your agent never runs the server's. Everything goes through fourteen tools whose names and shapes are fixed by the [tool contracts](/spec/tools), so an agent that follows this page works on any conforming server.
+An agent works a process by calling tools on a process server over MCP. The server never runs your agent's code, and your agent never runs the server's. Everything goes through fourteen tools whose names and shapes are fixed by the [tool contracts](../spec/tools.md), so an agent that follows this page works on any conforming server.
 
-If your agent supports [Agent Skills](https://agentskills.io), the quickest route is to [install the agentprocess skill](/agents/skill). It teaches the model everything below.
+If your agent supports [Agent Skills](https://agentskills.io), the quickest route is to [install the agentprocess skill](skill.md). It teaches the model everything below.
 
 ## The loop
 

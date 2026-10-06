@@ -33,19 +33,19 @@ The returned note travels in `handoff`, which work items also carry; `already_de
 
 ## Revision 4
 
-Source: [independent review, round 3](https://github.com/agentprocess/agentprocess/blob/main/research/review-round-3.md).
+Source: [independent review, round 3](../research/review-round-3.md).
 
 `get_work` is the inbox for people too and work items carry their `decide` call; the rejecting approval keeps its note current and rewound steps show `null`; a `failed` decision leaves a `failed` step with its note and the run records `ended`; writes to an ended run return `conflict` with `run_ended`; a write returns only after the transitions it triggered are applied; an event with no wait is held until the run ends; `assignedTo` has a person form. The parallel step no longer records anything in run data, and the profile states what it changes instead of claiming nothing changes.
 
 ## Revision 3
 
-Source: [independent review, round 2](https://github.com/agentprocess/agentprocess/blob/main/research/review-round-2.md).
+Source: [independent review, round 2](../research/review-round-2.md).
 
 Work items carry the step's output and evidence requirements; a replay always returns the original result; approvals no longer take a list `next`; held events are consumed oldest first; the snapshot is taken at read time so a stale decision can be retried; the `initiator` check covers every step; ending or cancelling a run cancels unfinished steps and tokens; human presence is stated as server authentication outside the protocol; `accepted` and `delivered` flags are dropped. The `parallel` profile is drafted against the 23 questions the review raised.
 
 ## Revision 2
 
-Source: [independent review, round 1](https://github.com/agentprocess/agentprocess/blob/main/research/review-round-1.md).
+Source: [independent review, round 1](../research/review-round-1.md).
 
 The example's approval now reaches `done`; `submit` and `decide` carry `next` and `reason`; `upload` carries `requestId`; file evidence is openable; approvals record `decision`, `note`, `by`, `at`; rejection moves later work to history; events are held until their wait; the hash covers the body; `decide` is required; escalation goes to operators; `list_processes` shows `inputs`; `start_run` returns the run view. Removed: `x-` fields, `x-content-hash`, `overdue`, `withdrawn`, `retry`, `download` and `files/` (now the `files` profile), `examples/`, `version`, `license`, and keeping undeclared submitted fields.
 

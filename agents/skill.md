@@ -15,7 +15,7 @@ It works on any conforming server. The connected server's own tool schemas and `
 
 ## Install it
 
-The skill lives in the repository at [`skills/agentprocess`](https://github.com/agentprocess/agentprocess/tree/main/skills/agentprocess). Copy that folder into a skills directory your agent scans:
+The skill lives in the repository at [`skills/agentprocess`](../skills/agentprocess). Copy that folder into a skills directory your agent scans:
 
 | Where | For |
 |---|---|
@@ -33,4 +33,4 @@ Then connect the agent to a process server's MCP endpoint. When a task involves 
 
 ## Without skills support
 
-An agent that does not support skills can still work steps. Follow [How to add Agent Process support](/agents/adding-support), or put the contents of `SKILL.md` in the agent's instructions.
+An agent that does not support skills can still work steps. Follow [How to add Agent Process support](adding-support.md), or put the contents of `SKILL.md` in the agent's instructions.

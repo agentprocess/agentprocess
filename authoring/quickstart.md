@@ -78,7 +78,7 @@ The body is plain language for agents and people. A server shows it with every c
 
 ## Check it
 
-A server refuses a file that breaks the rules in [§2 of the specification](/spec/specification), and reports every issue at once. The ones that catch most first drafts:
+A server refuses a file that breaks the rules in [§2 of the specification](../spec/specification.md), and reports every issue at once. The ones that catch most first drafts:
 
 - Every step has an `id` and exactly one kind key.
 - Every `next`, `on_reject` and `on_timeout` names a step that exists.
@@ -104,11 +104,5 @@ Then watch it move:
 
 ## Next steps
 
-<CardGroup cols={2}>
-  <Card title="Best practices" icon="lightbulb" href="/authoring/best-practices">
-    Write steps that agents and people can act on without asking.
-  </Card>
-  <Card title="Specification" icon="file-code" href="/spec/specification">
-    Every key, type and rule.
-  </Card>
-</CardGroup>
+- [Best practices](best-practices.md): write steps that agents and people can act on without asking.
+- [Specification](../spec/specification.md): every key, type and rule.

@@ -7,4 +7,5 @@ Agent Process is a small, server-neutral protocol. Keep it small: new requiremen
 - `schemas/core-2/` is generated from the reference implementation's contracts. Do not edit it by hand; change `spec/tools.md` and regenerate.
 - Every change to the specification gets an entry in `spec/revisions.md` saying what changed and what prompted it.
 - No product names in the specification, profiles or skill. A server's own features belong in that server's own profile and documentation.
+- The pages are published at https://agentprocess.io/docs. Keep links relative (`../spec/tools.md`) so they work on GitHub and on the site, and keep each page's `title` and `description` frontmatter; `sidebarTitle` is optional. A new page also needs an entry in the site's docs navigation.
 - Write plainly: short sentences, tables for fields, one example per shape.

@@ -4,7 +4,7 @@ sidebarTitle: "Implementing a server"
 description: "What a conforming server parses, refuses, stores and enforces, in the order you will build it."
 ---
 
-A process server holds published processes and their runs, hands steps to agents and people, accepts their output, and keeps the record. This page walks through what to build. The [specification](/spec/specification) and the [tool contracts](/spec/tools) are normative; where this page and they differ, they win.
+A process server holds published processes and their runs, hands steps to agents and people, accepts their output, and keeps the record. This page walks through what to build. The [specification](../spec/specification.md) and the [tool contracts](../spec/tools.md) are normative; where this page and they differ, they win.
 
 A server **conforms** when it keeps the five guarantees, offers the required tools with the contracts in the tools document, refuses what the specification says to refuse, and reports what it offers in `describe`.
 
@@ -82,8 +82,8 @@ A run started with `mode: test` says so in every `get_work` item, claim and work
 
 ## Profiles
 
-Implement [`parallel`](/spec/profiles/parallel) when processes need several steps at once, and [`check`](/spec/profiles/check) when you have an evaluator that can answer yes/no, choice and rubric questions. Advertise a profile only while you can honour it. Your own features belong in your own profile: new frontmatter keys, bound at publication, with anything they add to a claim in `extensions`.
+Implement [`parallel`](../spec/profiles/parallel.md) when processes need several steps at once, and [`check`](../spec/profiles/check.md) when you have an evaluator that can answer yes/no, choice and rubric questions. Advertise a profile only while you can honour it. Your own features belong in your own profile: new frontmatter keys, bound at publication, with anything they add to a claim in `extensions`.
 
 ## Check your work
 
-Run the [conformance fixtures](/servers/conformance) through your server.
+Run the [conformance fixtures](../conformance/README.md) through your server.
