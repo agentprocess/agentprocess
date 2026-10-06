@@ -82,10 +82,13 @@ The agent screens the vendor, finance approves, and the supplier is onboarded.
 
 **The same file is the map.** A server draws it from the steps, never from a second copy: a lane for each performer, routes branching from a decision point, and rejections looping back. ([How maps are drawn](authoring/process-maps.md))
 
+<a href="assets/maps/supplier-onboarding-light.png">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/maps/supplier-onboarding-dark.png">
   <img alt="The supplier onboarding process as a map: the agent checks the vendor, a decision point routes to finance approval or decline, and a rejection loops back to the check." src="assets/maps/supplier-onboarding-light.png" width="100%">
 </picture>
+</a>
+<p><sub>Select the map to see it full size, or <a href="https://agentprocess.io/docs/authoring/process-maps/">explore it interactively</a>.</sub></p>
 
 **2. Publish it to a process server.** The server checks the file, maps `finance-approver` to a group of people, and publishes a numbered version with a content hash. That version never changes.
 

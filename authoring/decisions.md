@@ -97,10 +97,13 @@ Every purchase request is classified under the purchasing policy and approved at
 level the policy requires. The policy is the numbered list in the classify step.
 ```
 
+<a href="../assets/maps/purchase-routing-light.png">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../assets/maps/purchase-routing-dark.png">
   <img alt="The purchase routing process as a map: the agent classifies the request, a decision point routes by tier to ordering, manager approval or finance approval." src="../assets/maps/purchase-routing-light.png" width="100%">
 </picture>
+</a>
+<p><sub>Select the map to see it full size, or <a href="https://agentprocess.io/docs/authoring/decisions/">explore it interactively</a>.</sub></p>
 
 What makes this robust:
 

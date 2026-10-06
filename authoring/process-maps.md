@@ -36,10 +36,13 @@ steps:
 The agent screens the vendor, finance approves, and the supplier is onboarded.
 ```
 
+<a href="../assets/maps/supplier-onboarding-light.png">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../assets/maps/supplier-onboarding-dark.png">
   <img alt="The supplier onboarding process as a map: the agent checks the vendor, a decision point routes to finance approval or decline, and a rejection loops back to the check." src="../assets/maps/supplier-onboarding-light.png" width="100%">
 </picture>
+</a>
+<p><sub>Select the map to see it full size, or <a href="https://agentprocess.io/docs/authoring/process-maps/">explore it interactively</a>.</sub></p>
 
 ## How each part is drawn
 

@@ -60,10 +60,13 @@ process in finance. A claim that does not match goes back to the employee to
 correct.
 ```
 
+<a href="../assets/maps/expense-approval-light.png">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../assets/maps/expense-approval-dark.png">
   <img alt="The expense approval process as a map: the agent checks the claim, then routes to the manager’s approval or back to the employee." src="../assets/maps/expense-approval-light.png" width="100%">
 </picture>
+</a>
+<p><sub>Select the map to see it full size, or <a href="https://agentprocess.io/docs/authoring/quickstart/">explore it interactively</a>.</sub></p>
 
 ## What each part does
 
