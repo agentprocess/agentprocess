@@ -60,6 +60,25 @@ process in finance. A claim that does not match goes back to the employee to
 correct.
 ```
 
+```mermaid
+flowchart TD
+  check_claim("Check claim<br/>Agent"):::agent
+  approve{{"Approve<br/>Approval: manager"}}:::person
+  return_to_employee["Return to employee<br/>Person: inputs.employee"]:::person
+  approved(["Approved"]):::outcome
+  returned(["Returned"]):::outcome
+  check_claim -->|"The receipt matches the claim and the policy allows it"| approve
+  check_claim -->|"Anything does not match"| return_to_employee
+  approve -->|"Approved"| approved
+  approve -.->|"Rejected"| check_claim
+  return_to_employee --> returned
+  classDef agent fill:#E6F0EE,stroke:#0E5E59,color:#0B3B38,stroke-width:1.5px
+  classDef person fill:#FDF4E4,stroke:#A15500,color:#4A2B00,stroke-width:1.5px
+  classDef wait fill:#EEF3FD,stroke:#2456C2,color:#16264D,stroke-width:1.5px
+  classDef flow fill:#F6F5F1,stroke:#8F8C83,color:#1C1D1A,stroke-width:1.5px
+  classDef outcome fill:#1C1D1A,stroke:#1C1D1A,color:#FFFFFF
+```
+
 ## What each part does
 
 | Part | Meaning |

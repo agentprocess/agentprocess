@@ -80,6 +80,25 @@ steps:
 The agent screens the vendor, finance approves, and the supplier is onboarded.
 ```
 
+**The same file is the map.** It is drawn from the steps, never maintained beside them: agents in teal, people in amber, rejections dashed. ([How maps are drawn](authoring/process-maps.md))
+
+```mermaid
+flowchart TD
+  check_vendor("Check vendor<br/>Agent"):::agent
+  approve{{"Approve<br/>Approval: finance-approver"}}:::person
+  decline(["Declined"]):::outcome
+  done(["Onboarded"]):::outcome
+  check_vendor -->|"Vendor is cleared on both lists"| approve
+  check_vendor -->|"Any sanctions hit"| decline
+  approve -->|"Approved"| done
+  approve -.->|"Rejected"| check_vendor
+  classDef agent fill:#E6F0EE,stroke:#0E5E59,color:#0B3B38,stroke-width:1.5px
+  classDef person fill:#FDF4E4,stroke:#A15500,color:#4A2B00,stroke-width:1.5px
+  classDef wait fill:#EEF3FD,stroke:#2456C2,color:#16264D,stroke-width:1.5px
+  classDef flow fill:#F6F5F1,stroke:#8F8C83,color:#1C1D1A,stroke-width:1.5px
+  classDef outcome fill:#1C1D1A,stroke:#1C1D1A,color:#FFFFFF
+```
+
 **2. Publish it to a process server.** The server checks the file, maps `finance-approver` to a group of people, and publishes a numbered version with a content hash. That version never changes.
 
 **3. Agents and people work it.** Any MCP-capable agent runs the same loop on any conforming server:
@@ -138,6 +157,20 @@ Start with approvals. Add model checks in advisory mode, compare them with real 
 <tr>
 <td valign="top">
 
+**A map from every file**<br>
+The file is the map: steps, people, routes and rejections drawn from the definition, so the picture can never drift from what runs. [Process maps](authoring/process-maps.md).
+
+</td>
+<td valign="top">
+
+**Every decision accountable**<br>
+Routes are chosen with a reason, approvals are made by people, model checks answer fixed questions, and policy rules are written once and verified. [How decisions are made](authoring/decisions.md).
+
+</td>
+</tr>
+<tr>
+<td valign="top">
+
 **Safe to retry, safe to rehearse**<br>
 Every write is idempotent on a `requestId`. Test runs rehearse a process end to end with no real effects.
 
@@ -155,7 +188,7 @@ Features arrive only as one-page profiles, and only when a real process cannot b
 
 | You are | Start here | Then |
 |---|---|---|
-| **A process author** | [Quickstart](authoring/quickstart.md): write a process and follow a test run | [Best practices](authoring/best-practices.md) |
+| **A process author** | [Quickstart](authoring/quickstart.md): write a process and follow a test run | [Best practices](authoring/best-practices.md) · [Decisions](authoring/decisions.md) · [Process maps](authoring/process-maps.md) |
 | **An agent builder** | [Add support to your agent](agents/adding-support.md): the loop, errors and retries | [Install the agent skill](agents/skill.md) |
 | **A server implementer** | [Implementing a process server](servers/implementing.md) | [Conformance fixtures](conformance/README.md) |
 | **Evaluating it** | [Why Agent Process](WHY.md) | [Specification](spec/specification.md) |
