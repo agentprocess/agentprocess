@@ -1,60 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="660" viewBox="0 0 1120 660" role="img" aria-labelledby="title desc">
-  <title id="title">A check is a decision inside a controlled process</title>
-  <desc id="desc">An agent submits work to a blocking model check. Pass reaches the required human approval. Fail returns feedback for correction and another check. Unsure holds the candidate for a person's decision. Shared run context supports handoff to another agent. Advisory checks do not block.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">An announcement checked before the editor signs off</title>
+  <desc id="desc">An agent promises CSV and PDF export to everyone. The check finds that PDF has not shipped and CSV is for administrators only, and sends the draft back. The corrected draft waits for the editor. Feedback travels to another agent; uncertain work goes to a person; the reviewer can see the work and the check.</desc>
   <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#0e5e59"/></marker>
-    <marker id="amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#9b651a"/></marker>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#0e5e59"/></marker>
   </defs>
-  <rect width="1120" height="660" rx="22" fill="#f7f6f2"/>
+  <rect width="1120" height="640" rx="22" fill="#f7f6f2"/>
   <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
-    <text x="48" y="48" fill="#0e5e59" font-size="13" font-weight="700" letter-spacing="2">AGENT PROCESS · OPTIONAL CHECK PROFILE</text>
-    <text x="48" y="91" fill="#1c1d1a" font-size="32" font-weight="700">Check the work. Keep the process accountable.</text>
-    <text x="48" y="122" fill="#5b5e56" font-size="17">A model judges the submission. The server enforces what happens next.</text>
+    <text x="40" y="46" fill="#0e5e59" font-size="13" font-weight="700" letter-spacing="2">EXAMPLE · A CUSTOMER ANNOUNCEMENT</text>
+    <text x="40" y="91" fill="#1c1d1a" font-size="30" font-weight="700">Catch a wrong promise before someone signs it off.</text>
+    <text x="40" y="126" fill="#5b5e56" font-size="18">The agent writes. A check compares the draft with the facts. The editor decides.</text>
 
-    <g stroke="#0e5e59" stroke-width="2" fill="none" marker-end="url(#arrow)">
-      <path d="M308 213H400"/>
-      <path d="M660 197H800"/>
-      <path d="M530 264V340"/>
-      <path d="M400 390H178V264"/>
-      <path d="M930 340V264"/>
+    <g stroke="#0e5e59" stroke-width="2" fill="none" marker-end="url(#arrow)"><path d="M360 277H398"/><path d="M720 277H758"/></g>
+    <rect x="40" y="180" width="320" height="200" rx="14" fill="#fff" stroke="#deded5"/>
+    <rect x="400" y="180" width="320" height="200" rx="14" fill="#fff8e9" stroke="#ddc49b"/>
+    <rect x="760" y="180" width="320" height="200" rx="14" fill="#e8efea" stroke="#c5d9cf"/>
+
+    <text x="62" y="213" fill="#5b5e56" font-size="13" font-weight="700" letter-spacing="1">1 · THE FIRST DRAFT</text>
+    <text x="62" y="251" fill="#1c1d1a" font-size="22" font-weight="650">“Everyone can now</text>
+    <text x="62" y="280" fill="#1c1d1a" font-size="22" font-weight="650">export CSV and PDF.”</text>
+    <text x="62" y="326" fill="#5b5e56" font-size="16">The draft promises more</text>
+    <text x="62" y="350" fill="#5b5e56" font-size="16">than the product provides.</text>
+
+    <text x="422" y="213" fill="#86601f" font-size="13" font-weight="700" letter-spacing="1">2 · SENT BACK TO FIX</text>
+    <text x="422" y="251" fill="#1c1d1a" font-size="22" font-weight="650">PDF has not shipped.</text>
+    <text x="422" y="283" fill="#715326" font-size="17">CSV is for administrators only.</text>
+    <text x="422" y="326" fill="#715326" font-size="16">The feedback stays with the work.</text>
+    <text x="422" y="350" fill="#715326" font-size="16">The revised draft is checked again.</text>
+
+    <text x="782" y="213" fill="#0e5e59" font-size="13" font-weight="700" letter-spacing="1">3 · READY FOR THE EDITOR</text>
+    <text x="782" y="251" fill="#1c1d1a" font-size="22" font-weight="650">“Administrators can</text>
+    <text x="782" y="280" fill="#1c1d1a" font-size="22" font-weight="650">now export CSV.”</text>
+    <text x="782" y="326" fill="#355950" font-size="16">The corrected draft waits.</text>
+    <text x="782" y="350" fill="#355950" font-size="16">Only the editor can approve it.</text>
+
+    <line x1="40" y1="420" x2="1080" y2="420" stroke="#deded5"/>
+    <g fill="#1c1d1a" font-size="18" font-weight="650">
+      <text x="40" y="459">Another agent takes over?</text>
+      <text x="400" y="459">The facts are missing?</text>
+      <text x="760" y="459">The editor needs context?</text>
     </g>
-    <path d="M660 239H730V390H800" fill="none" stroke="#9b651a" stroke-width="2" marker-end="url(#amber)"/>
-
-    <g fill="#fff" stroke="#deded5">
-      <rect x="48" y="168" width="260" height="96" rx="12"/>
-      <rect x="400" y="340" width="260" height="100" rx="12"/>
-      <rect x="800" y="168" width="272" height="96" rx="12"/>
+    <g fill="#5b5e56" font-size="16">
+      <text x="40" y="491">It gets the previous feedback</text>
+      <text x="40" y="515">with the work it picks up.</text>
+      <text x="400" y="491">An uncertain check holds the draft</text>
+      <text x="400" y="515">for a person to resolve.</text>
+      <text x="760" y="491">The submitted work and check</text>
+      <text x="760" y="515">result are in the same record.</text>
     </g>
-    <rect x="400" y="168" width="260" height="96" rx="12" fill="#0e5e59"/>
-    <rect x="800" y="340" width="272" height="100" rx="12" fill="#fff8e9" stroke="#ddc49b"/>
-
-    <text x="70" y="201" fill="#1c1d1a" font-size="21" font-weight="650">Agent submits</text>
-    <text x="70" y="229" fill="#5b5e56" font-size="15">Output + evidence + summary</text>
-    <text x="422" y="201" fill="#fff" font-size="21" font-weight="650">Model check</text>
-    <text x="422" y="229" fill="#d5e8e3" font-size="15">Fixed questions and thresholds</text>
-    <text x="822" y="201" fill="#1c1d1a" font-size="21" font-weight="650">Required approval</text>
-    <text x="822" y="229" fill="#5b5e56" font-size="15">Authorized person decides</text>
-    <text x="822" y="250" fill="#0e5e59" font-size="13">Only approval allows the next step.</text>
-
-    <text x="422" y="375" fill="#1c1d1a" font-size="21" font-weight="650">Correct and resubmit</text>
-    <text x="422" y="403" fill="#5b5e56" font-size="15">Keep the rejection feedback.</text>
-    <text x="422" y="424" fill="#5b5e56" font-size="15">The next submission is checked.</text>
-    <text x="822" y="375" fill="#1c1d1a" font-size="21" font-weight="650">Person resolves</text>
-    <text x="822" y="403" fill="#715326" font-size="15">Candidate + check results retained</text>
-    <text x="822" y="424" fill="#715326" font-size="15">Complete, return for rework, or fail</text>
-
-    <g font-size="13" font-weight="700" fill="#0e5e59">
-      <text x="730" y="183" text-anchor="middle">PASS</text>
-      <text x="545" y="310">FAIL</text>
-      <text x="945" y="308">COMPLETE</text>
-      <text x="195" y="375">RECHECK</text>
-    </g>
-    <text x="744" y="300" font-size="13" font-weight="700" fill="#9b651a">UNSURE</text>
-
-    <rect x="48" y="488" width="1024" height="82" rx="12" fill="#e8efea"/>
-    <text x="70" y="520" fill="#0e5e59" font-size="18" font-weight="700">Shared context across agents and people</text>
-    <text x="70" y="548" fill="#355950" font-size="16">Current work · submitted output · check results · approval decisions · handoff feedback</text>
-    <text x="48" y="608" fill="#5b5e56" font-size="14">Example with a blocking check and a required approval. Advisory checks record results without blocking.</text>
-    <text x="48" y="632" fill="#5b5e56" font-size="14">Checks can be wrong. The protocol governs progression; it does not guarantee the truth of an AI judgment.</text>
+    <text x="40" y="579" fill="#0e5e59" font-size="17" font-weight="650">Work can move between agents. Sign-off stays with the assigned person.</text>
+    <text x="40" y="612" fill="#5b5e56" font-size="14">Illustrative sequence from a scripted test. AI checks can miss mistakes; this process still requires the editor's approval.</text>
   </g>
 </svg>

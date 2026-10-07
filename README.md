@@ -114,27 +114,30 @@ People get work items and `decide`: approve, reject with a note, return, complet
 | 4 | **People decide** | Only a person completes an approval or a person's task. An agent never can. |
 | 5 | **Immutability** | A published version never changes, and a run keeps its version for life. |
 
-## Quality controls in action
+## When an agent gets the work wrong
 
-A model check becomes useful when its answer has an enforced consequence. The optional [`check-1` profile](spec/profiles/check.md) connects evaluation to correction, human review and a shared run record.
+An agent drafts a customer announcement. It says a feature is available to everyone. The product notes say it is available only to administrators—and another feature in the draft has not shipped at all.
 
-![A blocking model check passes work to required human approval, returns failed work for correction and rechecking, or holds uncertain work for a person. Shared context preserves the handoff between agents and people.](.github/assets/quality-controls.svg)
+With a check in the process, that draft can be sent back before it reaches the editor. The agent gets the failed check, corrects the announcement and submits it again. The editor still has to approve it. Passing the check does not let the agent sign off its own work.
 
-In a synthetic release-note proof of concept on **7 October 2026**, a live evaluator and a protocol implementation demonstrated:
+![An agent drafts an announcement promising CSV and PDF export to everyone. A check against the product notes sends it back: PDF has not shipped and CSV is for administrators only. The corrected draft waits for the editor's approval. Another agent can pick up the feedback; missing facts can be referred to a person.](.github/assets/quality-controls.svg)
 
-| Scenario | Observed behavior |
-| --- | --- |
-| Supported announcement | Passed the check and waited for human approval. |
-| Incorrect availability claim | Blocked; failure feedback reached a replacement agent. |
-| Corrected submission | Evaluated again and passed to human approval. |
-| Missing source information | Held for a person because evaluator confidence was below the configured threshold. |
-| Agent or unrelated person attempts approval | Refused; the authorized reviewer could approve. |
+**The work stays together, even when the people or agents change.** The next agent gets the feedback. The reviewer sees the submitted work and the check result. If the check is unsure, a person gets the draft to resolve. Nobody has to reconstruct that hand-off from a new chat.
 
-**The evaluator was imperfect; the control still mattered.** It labeled missing information as “contradicted,” with confidence 0.76. The configured 0.8 threshold routed that candidate to a person. Labels matched the independently specified expectations on three of four submissions; this is an observation, not an accuracy benchmark.
+We tried this with a sample announcement: the wrong draft was stopped, a correction passed, another agent received the feedback, and only the assigned reviewer could approve. In a separate case with missing product information, the draft was held for a person.
 
-The evaluator was live (`jev-1.13.0`); submissions, correction and human actions were scripted, and the engine stored this run in memory. This demonstrates the tested controls, not autonomous repair, durable recovery, calibrated confidence or a general advantage over another setup. Raw run artifacts and the implementation harness are not included in this public protocol repository.
+<details>
+<summary>What we tested, and what it shows</summary>
 
-The contracts are public: [checks and their outcomes](spec/profiles/check.md#3-running), [handoff between agents](spec/specification.md#33-agent-loop), and [human decisions](spec/specification.md#34-people). Checks do not replace required approvals, and workflow gates do not restrict actions taken through an agent's separately granted tools.
+On 7 October 2026, a live AI checker (`jev-1.13.0`) evaluated four submissions through the reference implementation. The agents' submissions, correction and people's actions were scripted; the run was stored in memory. This tests how the process handles the work, not whether an agent can independently find and fix its mistakes.
+
+The checker matched the expected answer on three of four submissions. It called missing information a contradiction, but its confidence was below the configured threshold, so the process held the draft for a person. That is useful handling of an imperfect answer, not proof that checks always catch errors.
+
+This small demonstration does not establish general accuracy, recovery after a restart or time saved by real teams. Raw artifacts and the implementation harness are not included in this public repository.
+
+The behavior comes from the optional [check profile](spec/profiles/check.md#3-running), [agent hand-offs](spec/specification.md#33-agent-loop) and [human decisions](spec/specification.md#34-people). Advisory checks only record their answers; they do not send work back. The process governs its own steps, not actions an agent takes through other tools.
+
+</details>
 
 ## Highlights
 
