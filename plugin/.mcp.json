@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "agentprocess": {
+      "type": "http",
+      "url": "https://api.agentprocess.io/mcp"
+    }
+  }
+}

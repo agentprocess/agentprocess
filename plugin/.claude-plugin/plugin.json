@@ -1,0 +1,12 @@
+{
+  "name": "agentprocess",
+  "displayName": "Agent Process",
+  "version": "0.1.0",
+  "description": "Design shared business processes and carry out authorized agent steps with evidence and human approvals.",
+  "author": {
+    "name": "Agent Process",
+    "url": "https://agentprocess.io"
+  },
+  "license": "Apache-2.0",
+  "privacyPolicyUrl": "https://agentprocess.io/privacy"
+}

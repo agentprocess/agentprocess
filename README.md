@@ -206,6 +206,8 @@ git clone https://github.com/agentprocess/agentprocess.git
 mkdir -p .agents/skills && cp -r agentprocess/skills/agentprocess .agents/skills/
 ```
 
+For Claude, the same skill ships as a plugin in [`plugin/`](plugin/), with the hosted server's connector beside it: add this repository as a marketplace under Customize › Plugins in claude.ai, or install `plugin/` from a local copy.
+
 ## How it compares
 
 | | Plain-language definition | Agents from any vendor | People decide, enforced | Output checked before moving on | Durable record | Open, portable |
