@@ -8,5 +8,15 @@
     "url": "https://agentprocess.io"
   },
   "license": "Apache-2.0",
-  "privacyPolicyUrl": "https://agentprocess.io/privacy"
+  "keywords": [
+    "processes",
+    "workflows",
+    "approvals"
+  ],
+  "homepage": "https://agentprocess.io",
+  "repository": "https://github.com/agentprocess/agentprocess",
+  "privacyPolicyUrl": "https://agentprocess.io/privacy",
+  "termsOfServiceUrl": "https://agentprocess.io/terms",
+  "supportUrl": "https://agentprocess.io/docs",
+  "documentationUrl": "https://agentprocess.io/docs"
 }
